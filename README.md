@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/adsabs/adsmsg.svg)](https://travis-ci.org/adsabs/ADSPipelineMsg)
-[![Coverage Status](https://coveralls.io/repos/adsabs/adsmsg/badge.svg)](https://coveralls.io/r/adsabs/ADSPipelineMsg)
+[![Build Status](https://travis-ci.org/adsabs/ADSPipelineMsg.svg)](https://travis-ci.org/adsabs/ADSPipelineMsg)
+[![Coverage Status](https://coveralls.io/repos/adsabs/ADSPipelineMsg/badge.svg)](https://coveralls.io/r/adsabs/ADSPipelineMsg)
 
 
 # adsmsg
