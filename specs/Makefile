@@ -1,8 +1,16 @@
 
-files = $(shell find . -iname '*.proto')
+all: ../adsmsg/protobuf/bibrecord_pb2.py ../adsmsg/protobuf/denormalized_record_pb2.py ../adsmsg/protobuf/metrics.py
 
-all:
-	python -c "import os,glob; [os.system('protoc --python_out=../adsmsg/protobuf {file}'.format(file=x)) for x in glob.glob('*.proto')]"
-	
+../adsmsg/protobuf/bibrecord_pb2.py: bibrecord.proto
+	protoc --python_out=../adsmsg/protobuf/ bibrecord.proto 
+
+../adsmsg/protobuf/denormalized_record_pb2.py: denormalized_record.proto
+	protoc --python_out=../adsmsg/protobuf/ denormalized_record.proto
+
+../adsmsg/protobuf/metrics.py: metrics.proto
+	protoc --python_out=../adsmsg/protobuf/ metrics.proto 
+
 clean:
-	python -c "import os,glob; [os.system('rm -fr ../adsmsg/protobuf/{file}_pb2.py*'.format(file=x.split('.proto')[0])) for x in glob.glob('*.proto')]"
+	rm -f ../adsmsg/protobuf/bibrecord_pb2.py
+	rm -f ../adsmsg/protobuf/denormalized_record_pb2.py
+	rm -f ../adsmsg/protobuf/metrics.py
