@@ -2,7 +2,7 @@ syntax = "proto2";
 
 package adsmsg;
 
-message BibRecord {
+message MetricsRecord {
     required string bibcode = 1;
 	optional int32 id = 2;
 	optional bool refereed = 3;
