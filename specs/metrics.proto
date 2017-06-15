@@ -20,3 +20,7 @@ message MetricsRecord {
 	optional float an_refereed_citations = 15;
 	optional string modtime = 16;
 }
+
+message MetricsRecordList {
+	repeated MetricsRecord metrics_records = 1;
+}
