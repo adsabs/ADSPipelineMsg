@@ -1,9 +1,9 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package adsmsg;
 
 message OrcidClaims {
-    required string bibcode = 1;
+    string bibcode = 1;
     
     // list of author names: ['Einstein, A', 'Socrates', 'Munger, C']
     repeated string authors = 2;
@@ -13,5 +13,4 @@ message OrcidClaims {
     //  - unverified:  the rest
     repeated string verified = 3;
     repeated string unverified = 4;
-
 }
