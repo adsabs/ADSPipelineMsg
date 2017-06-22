@@ -23,7 +23,15 @@ class MetricsRecord(Msg):
                 
 
 
-class MetricsRecordList(Msg):
+class MetricsRecordList():
     
-    def __init__(self, *args, **kwargs):        
-        super(MetricsRecordList, self).__init__(metrics_pb2.MetricsRecordList(), args, kwargs)
+    def __init__(self, metrics_records):
+        instance = metrics_pb2.MetricsRecordList()
+        self.__dict__['_data'] = instance  
+        for current in metrics_records:
+            tmp = MetricsRecord(**current)
+            current_protobuf = tmp.__dict__['_data']
+            instance.metrics_records.extend([current_protobuf])
+
+        self.__dict__['metrics_records'] = instance.metrics_records     
+        
