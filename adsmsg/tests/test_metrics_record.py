@@ -1,6 +1,6 @@
 
 import unittest
-from adsmsg.metrics_record import MetricsRecord
+from adsmsg.metrics_record import MetricsRecord, MetricsRecordList
 from datetime import datetime
 import time
 
@@ -78,7 +78,16 @@ class TestMsg(unittest.TestCase):
             for key in t[i]:
                 self.assertEqual(t[i][key], getattr(p[i], key), 'rn_citation_data field {}'.format(key))
 
-                        
-
+    def test_record_list(self):
+        """simple test for test MetricsRecordList"""
+        metrics_data1 = metrics_data = {'bibcode': '1954PhRv...93..256R', 'id': 1, 'refereed': True}                 
+        metrics_data2 = metrics_data = {'bibcode': '1954PhRv...93..256M', 'id': 2, 'refereed': False}
+        metrics_list = [metrics_data1, metrics_data2]                 
+        m = MetricsRecordList(metrics_list)
+        self.assertEqual(len(metrics_list), len(m.metrics_records))
+        for i in range(0, len(metrics_list)):
+            self.assertEqual(metrics_list[i]['bibcode'], m.metrics_records[i].bibcode)
+            self.assertEqual(metrics_list[i]['refereed'], m.metrics_records[i].refereed)
+        
 if __name__ == '__main__':
     unittest.main()
