@@ -3,6 +3,7 @@ import unittest
 from adsmsg.metrics_record import MetricsRecord, MetricsRecordList
 from datetime import datetime
 import time
+from json import dumps, loads
 from __builtin__ import float
 
 class TestMsg(unittest.TestCase):
@@ -15,7 +16,7 @@ class TestMsg(unittest.TestCase):
 
 
     def test_simple_data(self):
-        """tests fields where output data that exactly matches input data and data has simple structure"""
+        """tests fields where output data exactly matches input data and data has a simple structure"""
         metrics_data = {'bibcode': '1954PhRv...93..256R',
                         'an_citations': 0.15625,
                         'an_refereed_citations': 0.2,
@@ -40,8 +41,16 @@ class TestMsg(unittest.TestCase):
                 self.assertAlmostEqual(getattr(m, key), metrics_data[key], 6)
             else:
                 self.assertEqual(getattr(m, key), metrics_data[key])
+        self.verify_json(m, 'simple data json test')
+        
 
-            
+    def verify_json(self, metrics_record, message):
+        """verify json representation for protbuf is valid by running it through json library"""
+        proto_json = metrics_record.toJSON()
+        test_json = loads(dumps(proto_json))
+        self.assertEqual(proto_json, test_json, message)
+        
+
     def test_time(self):
         """protobuf time field requires conversion back to python datetime"""
         test_datetime = datetime.now()
@@ -52,7 +61,7 @@ class TestMsg(unittest.TestCase):
         m_iso = m.modtime.ToJsonString()
         m_datetime = datetime.strptime(m_iso, "%Y-%m-%dT%H:%M:%S.%fZ")
         self.assertEqual(test_datetime, m_datetime)
-
+        self.verify_json(m, 'time json test')
 
     def test_id(self):
         """id field is not serialized, when present it should not raise exception"""
@@ -61,6 +70,7 @@ class TestMsg(unittest.TestCase):
         m = MetricsRecord(**metrics_data)
         m_id = getattr(m, 'id', None)
         self.assertEqual(None, m_id)
+        self.verify_json(m, 'id json test')
 
 
     def test_rn_dict_data(self):
@@ -95,6 +105,8 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(len(t), len(p))
         for key in t:
             self.assertAlmostEqual(t[key], p[key], 6, msg='rn_citations_hist field {}'.format(key))
+        self.verify_json(m, 'dict json test')
+
 
 
     def test_record_list(self):
@@ -108,6 +120,8 @@ class TestMsg(unittest.TestCase):
         for i in range(0, len(metrics_list)):
             self.assertEqual(metrics_list[i]['bibcode'], m.metrics_records[i].bibcode)
             self.assertEqual(metrics_list[i]['refereed'], m.metrics_records[i].refereed)
+        self.verify_json(m, 'list json test')
+
 
 
 
