@@ -1,5 +1,7 @@
 from .msg import Msg
 from .protobuf import metrics_pb2
+from google.protobuf.json_format import MessageToJson
+import json
 
 # wrapper classes for metrics protobufs
 
@@ -34,3 +36,12 @@ class MetricsRecordList(Msg):
         super(MetricsRecordList, self).__init__(metrics_pb2.MetricsRecordList(), args, kwargs)
     
            
+def protobufToMetricsRecord(pbuf):
+    """use with elements in MetricsRecordList.metrics_records
+
+    converts metricsrecord_pb2.MetricsRecord to our MetricsRecord wrapper
+    """
+    tmp_string = MessageToJson(pbuf)
+    tmp_dict = json.loads(tmp_string)
+    tmp_metrics = MetricsRecord(**tmp_dict)
+    return tmp_metrics
