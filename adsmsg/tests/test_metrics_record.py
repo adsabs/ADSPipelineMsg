@@ -1,6 +1,6 @@
 
 import unittest
-from adsmsg.metrics_record import MetricsRecord, MetricsRecordList
+from adsmsg.metrics_record import MetricsRecord, MetricsRecordList, protobufToMetricsRecord
 from datetime import datetime
 import time
 from json import dumps, loads
@@ -109,6 +109,20 @@ class TestMsg(unittest.TestCase):
         for i in range(0, len(metrics_list)):
             self.assertEqual(metrics_list[i]['bibcode'], m.metrics_records[i].bibcode)
             self.assertEqual(metrics_list[i]['refereed'], m.metrics_records[i].refereed)
+
+    def test_list_wrapper(self):
+        metrics_data1 = metrics_data = {'bibcode': '1954PhRv...93..256R', 'refereed': True}
+        metrics_data2 = metrics_data = {'bibcode': '1954PhRv...93..256M', 'refereed': False}
+        metrics_list = [metrics_data1, metrics_data2]
+        m = MetricsRecordList(metrics_records=metrics_list)
+
+        count = 0
+        for current in m.metrics_records:
+            wrapper = protobufToMetricsRecord(current)
+            self.assertEqual(wrapper.bibcode, metrics_list[count]['bibcode'])
+            self.assertEqual(wrapper.refereed, metrics_list[count]['refereed'])
+            count += 1
+
 
 
 
