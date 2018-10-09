@@ -1,8 +1,10 @@
 #!/bin/bash
+set -x
+set -e
 
 if [ "`docker images adsmsg | grep adsmsg`" = "" ]; then
-  docker build -t adsmsg .
-  docker run -it --name adsmsg adsmsg
+    docker build -t adsmsg .
+    #docker run -it --name adsmsg adsmsg
 fi
 
 docker rm adsmsg

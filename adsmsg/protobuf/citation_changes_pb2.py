@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='citation_changes.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x16\x63itation_changes.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\x1a#citation_changes_content_type.proto\":\n\x0f\x43itationChanges\x12\'\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x16.adsmsg.CitationChange\"\xab\x01\n\x0e\x43itationChange\x12\x0e\n\x06\x63iting\x18\x01 \x01(\t\x12\r\n\x05\x63ited\x18\x02 \x01(\t\x12\x37\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32!.adsmsg.CitationChangeContentType\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08resolved\x18\x05 \x01(\x08\x12\x1e\n\x06status\x18\x06 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
+  serialized_pb=_b('\n\x16\x63itation_changes.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\x1a#citation_changes_content_type.proto\":\n\x0f\x43itationChanges\x12\'\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x16.adsmsg.CitationChange\"\xbe\x01\n\x0e\x43itationChange\x12\x0e\n\x06\x63iting\x18\x01 \x01(\t\x12\r\n\x05\x63ited\x18\x02 \x01(\t\x12\x37\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32!.adsmsg.CitationChangeContentType\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08resolved\x18\x05 \x01(\x08\x12\x1e\n\x06status\x18\x06 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x11\n\ttimestamp\x18\x07 \x01(\tb\x06proto3')
   ,
   dependencies=[status__pb2.DESCRIPTOR,citation__changes__content__type__pb2.DESCRIPTOR,])
 
@@ -108,6 +108,13 @@ _CITATIONCHANGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='adsmsg.CitationChange.timestamp', index=6,
+      number=7, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -121,7 +128,7 @@ _CITATIONCHANGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=146,
-  serialized_end=317,
+  serialized_end=336,
 )
 
 _CITATIONCHANGES.fields_by_name['changes'].message_type = _CITATIONCHANGE
