@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "google/protobuf/timestamp.proto";
 import "status.proto";
 import "citation_changes_content_type.proto";
 package adsmsg;
@@ -14,5 +15,6 @@ message CitationChange {
     string content = 4;
     bool resolved = 5;
     Status status = 6;
+    google.protobuf.Timestamp timestamp = 7;
 }
 

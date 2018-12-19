@@ -13,6 +13,7 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 import status_pb2 as status__pb2
 import citation_changes_content_type_pb2 as citation__changes__content__type__pb2
 
@@ -21,9 +22,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='citation_changes.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x16\x63itation_changes.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\x1a#citation_changes_content_type.proto\":\n\x0f\x43itationChanges\x12\'\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x16.adsmsg.CitationChange\"\xab\x01\n\x0e\x43itationChange\x12\x0e\n\x06\x63iting\x18\x01 \x01(\t\x12\r\n\x05\x63ited\x18\x02 \x01(\t\x12\x37\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32!.adsmsg.CitationChangeContentType\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08resolved\x18\x05 \x01(\x08\x12\x1e\n\x06status\x18\x06 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
+  serialized_pb=_b('\n\x16\x63itation_changes.proto\x12\x06\x61\x64smsg\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x0cstatus.proto\x1a#citation_changes_content_type.proto\":\n\x0f\x43itationChanges\x12\'\n\x07\x63hanges\x18\x01 \x03(\x0b\x32\x16.adsmsg.CitationChange\"\xda\x01\n\x0e\x43itationChange\x12\x0e\n\x06\x63iting\x18\x01 \x01(\t\x12\r\n\x05\x63ited\x18\x02 \x01(\t\x12\x37\n\x0c\x63ontent_type\x18\x03 \x01(\x0e\x32!.adsmsg.CitationChangeContentType\x12\x0f\n\x07\x63ontent\x18\x04 \x01(\t\x12\x10\n\x08resolved\x18\x05 \x01(\x08\x12\x1e\n\x06status\x18\x06 \x01(\x0e\x32\x0e.adsmsg.Status\x12-\n\ttimestamp\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.Timestampb\x06proto3')
   ,
-  dependencies=[status__pb2.DESCRIPTOR,citation__changes__content__type__pb2.DESCRIPTOR,])
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,status__pb2.DESCRIPTOR,citation__changes__content__type__pb2.DESCRIPTOR,])
 
 
 
@@ -54,8 +55,8 @@ _CITATIONCHANGES = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=85,
-  serialized_end=143,
+  serialized_start=118,
+  serialized_end=176,
 )
 
 
@@ -108,6 +109,13 @@ _CITATIONCHANGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='timestamp', full_name='adsmsg.CitationChange.timestamp', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -120,13 +128,14 @@ _CITATIONCHANGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=146,
-  serialized_end=317,
+  serialized_start=179,
+  serialized_end=397,
 )
 
 _CITATIONCHANGES.fields_by_name['changes'].message_type = _CITATIONCHANGE
 _CITATIONCHANGE.fields_by_name['content_type'].enum_type = citation__changes__content__type__pb2._CITATIONCHANGECONTENTTYPE
 _CITATIONCHANGE.fields_by_name['status'].enum_type = status__pb2._STATUS
+_CITATIONCHANGE.fields_by_name['timestamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['CitationChanges'] = _CITATIONCHANGES
 DESCRIPTOR.message_types_by_name['CitationChange'] = _CITATIONCHANGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
