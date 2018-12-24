@@ -105,8 +105,10 @@ message DenormalizedRecord {
     string volume = 72;
     string year = 73;
     string series = 98;
+    string publisher = 99;
+    string version = 100;
     
-    // current highest id: 98
+    // current highest id: 100
     
     
 }

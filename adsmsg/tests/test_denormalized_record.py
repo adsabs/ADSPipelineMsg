@@ -39,8 +39,8 @@ class TestDenormalizedRecord(unittest.TestCase):
         self.assertEqual(denormalized_record.data.abstract, abstract)
         self.assertEqual(denormalized_record.data.author[0], author)
         self.assertEqual(denormalized_record.data.author_count, author_count)
-        
-    
+
+
     def test_full_record(self):
         """This is here also as a documentation."""
         solr_record = {
@@ -114,10 +114,12 @@ class TestDenormalizedRecord(unittest.TestCase):
              'title': [u'Ultraviolet Radiative Transfer Modeling of Nearby Galaxies'],
              'volume': u'815',
              'year': u'2015',
-             'series': u'series name here'}
+             'series': u'series name here',
+             'publisher': u'Zenodo',
+             'version': u'1.0.0'}
 
         r = DenormalizedRecord(**solr_record)
-        
+
         # protobuf actually removes zero values, which is imho cool....
         expected = {}
         expected.update(solr_record)
