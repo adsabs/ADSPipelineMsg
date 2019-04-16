@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='augmentrecord.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x13\x61ugmentrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"o\n\x1f\x41ugmentAffiliationRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x0b\n\x03\x61\x66\x66\x18\x03 \x03(\t\x12\x0e\n\x06\x61uthor\x18\x04 \x03(\t\"\x8c\x01\n#AugmentAffiliationRequestRecordList\x12\x45\n\x14\x61\x66\x66iliation_requests\x18\x01 \x03(\x0b\x32\'.adsmsg.AugmentAffiliationRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"\xd6\x01\n AugmentAffiliationResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x0b\n\x03\x61\x66\x66\x18\x03 \x03(\t\x12\x0e\n\x06\x61uthor\x18\x04 \x03(\t\x12\x12\n\naff_abbrev\x18\x05 \x03(\t\x12\x15\n\raff_canonical\x18\x06 \x03(\t\x12\x11\n\taff_facet\x18\x07 \x03(\t\x12\x16\n\x0e\x61\x66\x66_facet_hier\x18\x08 \x03(\t\x12\x0e\n\x06\x61\x66\x66_id\x18\t \x03(\t\"\x8f\x01\n$AugmentAffiliationResponseRecordList\x12G\n\x15\x61\x66\x66iliation_responses\x18\x01 \x03(\x0b\x32(.adsmsg.AugmentAffiliationResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
+  serialized_pb=_b('\n\x13\x61ugmentrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"o\n\x1f\x41ugmentAffiliationRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x0b\n\x03\x61\x66\x66\x18\x03 \x03(\t\x12\x0e\n\x06\x61uthor\x18\x04 \x03(\t\"\x8c\x01\n#AugmentAffiliationRequestRecordList\x12\x45\n\x14\x61\x66\x66iliation_requests\x18\x01 \x03(\x0b\x32\'.adsmsg.AugmentAffiliationRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"\xeb\x01\n AugmentAffiliationResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x0b\n\x03\x61\x66\x66\x18\x03 \x03(\t\x12\x0e\n\x06\x61uthor\x18\x04 \x03(\t\x12\x12\n\naff_abbrev\x18\x05 \x03(\t\x12\x15\n\raff_canonical\x18\x06 \x03(\t\x12\x11\n\taff_facet\x18\x07 \x03(\t\x12\x16\n\x0e\x61\x66\x66_facet_hier\x18\x08 \x03(\t\x12\x0e\n\x06\x61\x66\x66_id\x18\t \x03(\t\x12\x13\n\x0binstitution\x18\n \x03(\t\"\x8f\x01\n$AugmentAffiliationResponseRecordList\x12G\n\x15\x61\x66\x66iliation_responses\x18\x01 \x03(\x0b\x32(.adsmsg.AugmentAffiliationResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
 
@@ -187,6 +187,13 @@ _AUGMENTAFFILIATIONRESPONSERECORD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
+    _descriptor.FieldDescriptor(
+      name='institution', full_name='adsmsg.AugmentAffiliationResponseRecord.institution', index=9,
+      number=10, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
   ],
   extensions=[
   ],
@@ -200,7 +207,7 @@ _AUGMENTAFFILIATIONRESPONSERECORD = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=302,
-  serialized_end=516,
+  serialized_end=537,
 )
 
 
@@ -237,8 +244,8 @@ _AUGMENTAFFILIATIONRESPONSERECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=519,
-  serialized_end=662,
+  serialized_start=540,
+  serialized_end=683,
 )
 
 _AUGMENTAFFILIATIONREQUESTRECORD.fields_by_name['status'].enum_type = status__pb2._STATUS
