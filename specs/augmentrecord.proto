@@ -31,6 +31,7 @@ message AugmentAffiliationResponseRecord {
     repeated string aff_facet = 7;
     repeated string aff_facet_hier = 8;
     repeated string aff_id = 9;
+    repeated string institution = 10;
 }
 
 // also support lists of the above
