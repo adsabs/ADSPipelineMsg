@@ -8,5 +8,5 @@ message FulltextUpdate {
     Status status = 3;
     string acknowledgements = 4;
     repeated string dataset = 5;
+    repeated string facilities = 6;
 }
-
