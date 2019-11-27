@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='fulltext_update.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x15\x66ulltext_update.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"\x8e\x01\n\x0e\x46ulltextUpdate\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x18\n\x10\x61\x63knowledgements\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x05 \x03(\t\x12\x12\n\nfacilities\x18\x06 \x03(\tb\x06proto3')
+  serialized_pb=_b('\n\x15\x66ulltext_update.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"\x8c\x01\n\x0e\x46ulltextUpdate\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x0c\n\x04\x62ody\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x18\n\x10\x61\x63knowledgements\x18\x04 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x05 \x03(\t\x12\x10\n\x08\x66\x61\x63ility\x18\x06 \x03(\tb\x06proto3')
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
 
@@ -70,7 +70,7 @@ _FULLTEXTUPDATE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='facilities', full_name='adsmsg.FulltextUpdate.facilities', index=5,
+      name='facility', full_name='adsmsg.FulltextUpdate.facility', index=5,
       number=6, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -89,7 +89,7 @@ _FULLTEXTUPDATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=48,
-  serialized_end=190,
+  serialized_end=188,
 )
 
 _FULLTEXTUPDATE.fields_by_name['status'].enum_type = status__pb2._STATUS
