@@ -71,6 +71,9 @@ class TestMsg(unittest.TestCase):
              "aff_id": ['placeholder'],
              "institution": [
                 "CfA"
+             ],
+             'aff_raw':  [
+                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA."
              ]
         }
         a = AugmentAffiliationResponseRecord(**d)
@@ -82,6 +85,7 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(a.aff_canonical, d['aff_canonical'])
         self.assertEqual(a.aff_facet_hier, d['aff_facet_hier'])
         self.assertEqual(a.aff_id, d['aff_id'])
+        self.assertEqual(a.aff_raw, d['aff_raw'])
         self.assertEqual(a.institution, d['institution'])
         
     def test_affiliation_response_list(self):
@@ -108,6 +112,9 @@ class TestMsg(unittest.TestCase):
              "aff_id": ['placeholder'],
              "institution": [
                 "CfA"
+             ],
+             'aff_raw':  [
+                "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA."
              ]
         }
         d_list = [d]
@@ -124,4 +131,5 @@ class TestMsg(unittest.TestCase):
             self.assertEqual(m.affiliation_responses[i].aff_canonical, d_list[i]['aff_canonical'])
             self.assertEqual(m.affiliation_responses[i].aff_facet_hier, d_list[i]['aff_facet_hier'])
             self.assertEqual(m.affiliation_responses[i].aff_id, d_list[i]['aff_id'])
+            self.assertEqual(m.affiliation_responses[i].aff_raw, d_list[i]['aff_raw'])
             self.assertEqual(m.affiliation_responses[i].institution, d_list[i]['institution'])
