@@ -39,7 +39,17 @@ class TestBibRecord(unittest.TestCase):
 
 
         data = bibrecord.serialize()
-        self.assertEqual(data, '\n\x13{0}\x12\x04{1}\x1a0\n.\n,{2}"\x1c\n\x1a\n\x18{3}'.format(bibcode, JSON_fingerprint, arxiv_category, content))
+        if sys.version_info > (3,):
+            test_data = b'\n\x13%b\x12\x04%b\x1a0\n.\n,%b"\x1c\n\x1a\n\x18%b' % (bibcode.encode(),
+                                                                                 JSON_fingerprint.encode(),
+                                                                                 arxiv_category.encode(),
+                                                                                 content.encode())
+        else:
+            test_data = '\n\x13{0}\x12\x04{1}\x1a0\n.\n,{2}"\x1c\n\x1a\n\x18{3}'.format(bibcode,
+                                                                                        JSON_fingerprint,
+                                                                                        arxiv_category,
+                                                                                        content)
+        self.assertEqual(data, test_data)
         data_str = str(bibrecord)
         self.assertEqual(data_str, 'bibcode: "{0}"\nJSON_fingerprint: "{1}"\nmetadata {{\n  general {{\n    arxivcategories: "{2}"\n  }}\n}}\ntext {{\n  body {{\n    content: "{3}"\n  }}\n}}\n'.format(bibcode, JSON_fingerprint, arxiv_category, content))
         self.assertNotEqual(data, data_str)

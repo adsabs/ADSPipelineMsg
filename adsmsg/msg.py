@@ -1,3 +1,6 @@
+from builtins import str
+from past.builtins import basestring
+from builtins import object
 from datetime import datetime
 from google.protobuf import json_format
 from google.protobuf import timestamp_pb2
@@ -17,12 +20,12 @@ class Msg(object):
                 if isinstance(kwargs['status'], basestring) and hasattr(Status, kwargs['status']):
                     kwargs['status'] = getattr(Status, kwargs['status'])
 
-            for k, v in kwargs.items():
+            for k, v in list(kwargs.items()):
                 if isinstance(v, list) or isinstance(v, tuple):
                     getattr(instance, k).extend(v) #TODO(rca): use some smarter reflection
                 elif isinstance(v, dict):
                     x = getattr(instance, k)
-                    for dk in v.keys():
+                    for dk in list(v.keys()):
                          x[dk] = v[dk]
                 elif isinstance(v, datetime):
                     getattr(instance, k).FromDatetime(v)

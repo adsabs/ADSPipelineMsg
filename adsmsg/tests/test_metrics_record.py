@@ -4,7 +4,11 @@ from adsmsg.metrics_record import MetricsRecord, MetricsRecordList
 from datetime import datetime
 import time
 from json import dumps, loads
-from __builtin__ import float
+try:
+    from __builtin__ import float
+except ModuleNotFoundError:
+    from builtins import float
+
 
 class TestMsg(unittest.TestCase):
 

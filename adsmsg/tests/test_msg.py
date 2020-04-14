@@ -5,8 +5,15 @@ import unittest
 import adsmsg
 from adsmsg import BibRecord, Status
 from adsmsg.msg import Msg
-import json
 import base64
+
+try:
+    import simplejson as json
+except ImportError:
+    import json
+
+from google.protobuf import json_format
+
 
 class TestMsg(unittest.TestCase):
 
@@ -34,7 +41,11 @@ class TestMsg(unittest.TestCase):
         cls, data = b.dump()
 
         self.assertEqual('adsmsg.bibrecord.BibRecord', cls)
-        self.assertEqual('\n\x07bibcode', data)
+        if sys.version_info > (3,):
+            test_data = b'\n\x07bibcode'
+        else:
+            test_data = '\n\x07bibcode'
+        self.assertEqual(test_data, data)
 
         b2 = Msg.loads(cls, data)
         self.assertEqual(b2.bibcode, b.bibcode)
@@ -45,14 +56,22 @@ class TestMsg(unittest.TestCase):
         cls, data = b.dump()
 
         self.assertEqual('adsmsg.bibrecord.BibRecord', cls)
-        self.assertEqual('\n\x02\xc6\xb5', data)
+        if sys.version_info > (3,):
+            test_data = b'\n\x02\xc6\xb5'
+        else:
+            test_data = '\n\x02\xc6\xb5'
+        self.assertEqual(test_data, data)
 
         b2 = Msg.loads(cls, data)
         self.assertEqual(b2.bibcode, b.bibcode)
 
 
     def test_json(self):
-        b = BibRecord(bibcode=u'\u01b5')
+        if sys.version_info > (3,):
+            test_bib = '\u01b5'
+        else:
+            test_bib = u'\u01b5'
+        b = BibRecord(bibcode=test_bib)
         cls, data = b.dump()
         x = json.dumps(b.__json__())
         z = json.loads(x)
