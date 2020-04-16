@@ -5,9 +5,9 @@ RUN \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes autoconf automake libtool curl make g++ unzip wget && \
     rm -rf /var/lib/apt/lists/* && \
-    wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-python-3.3.0.tar.gz && \
-    tar -zxvf protobuf-python-3.3.0.tar.gz && \
-    cd protobuf-3.3.0/ && \
+    wget https://github.com/google/protobuf/releases/download/v3.11.3/protobuf-python-3.11.3.tar.gz && \
+    tar -zxvf protobuf-python-3.11.3.tar.gz && \
+    cd protobuf-3.11.3/ && \
     ./configure && \
     make -j 2 && \
     make install && \

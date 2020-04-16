@@ -104,3 +104,6 @@ python/
 
 # emacs
 *~
+
+**/.DS_Store
+*.idea

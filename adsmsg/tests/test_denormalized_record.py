@@ -29,7 +29,12 @@ class TestDenormalizedRecord(unittest.TestCase):
         denormalized_record.data.author.append(author)
         denormalized_record.data.author_count = author_count
         data = denormalized_record.serialize()
-        self.assertEqual(data, '\n\x19{0}:\x07{1}@\x01'.format(abstract, author))
+        if sys.version_info > (3,):
+            test_data = b'\n\x19%b:\x07%b@\x01' % (abstract.encode(),
+                                                   author.encode())
+        else:
+            test_data = '\n\x19{0}:\x07{1}@\x01'.format(abstract, author)
+        self.assertEqual(data, test_data)
         data_str = str(denormalized_record)
         self.assertEqual(data_str, 'abstract: "{0}"\nauthor: "{1}"\nauthor_count: {2}\n'.format(abstract, author, author_count))
         self.assertNotEqual(data, data_str)
