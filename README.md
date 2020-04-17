@@ -55,13 +55,14 @@ py.test
 
 ### Releasing new version to pypi
 
-When a new release is ready, it should be uploaded to pypi. First, try the test environment:
+When a new release is ready, it should be uploaded to pypi. First, try the test environment (instructions given for Python 3, but can also use Python 2):
 
 ```
-virtualenv python
-source python/bin/activate
+python3 -m venv ./venv
+source venv/bin/activate
 pip install --upgrade setuptools wheel
-python setup.py sdist bdist_wheel
+python3 setup.py sdist
+python3 setup.py bdist_wheel --universal
 pip install --upgrade twine
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 twine upload dist/*
