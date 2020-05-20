@@ -61,7 +61,7 @@ When a new release is ready, it should be uploaded to pypi. First, try the test 
 python3 -m venv ./venv
 source venv/bin/activate
 pip install --upgrade setuptools wheel
-rm -f dist/*
+rm -rf dist/
 python3 setup.py sdist
 python3 setup.py bdist_wheel --universal
 pip install --upgrade twine
