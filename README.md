@@ -61,11 +61,11 @@ When a new release is ready, it should be uploaded to pypi. First, try the test 
 python3 -m venv ./venv
 source venv/bin/activate
 pip install --upgrade setuptools wheel
+rm -f dist/*
 python3 setup.py sdist
 python3 setup.py bdist_wheel --universal
 pip install --upgrade twine
 twine upload --repository-url https://test.pypi.org/legacy/ dist/*
-twine upload dist/*
 ```
 
 Verify the [testing pypi repository](https://test.pypi.org/project/adsmsg/) and if everything looks good, you can proceed to upload to the [official repository](https://pypi.org/project/adsmsg/):
