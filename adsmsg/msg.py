@@ -11,7 +11,7 @@ import base64
 class Msg(object):
 
     def __init__(self, instance, args, kwargs):
-        self.__dict__['_data'] = instance
+        self.__dict__['_data'] = instance # Equivalent to: self._data = instance
         if kwargs:
 
             # every ADS msg object can have status; here we simply allow to specify status as a
@@ -38,9 +38,15 @@ class Msg(object):
 
 
     def __getattr__(self, key):
+        if self.__dict__.get('_data') is None:
+            # [PATCH] with Python 3 compatible celery packages, a strange
+            # case happens where the attribute '__setstate__' gets call onto
+            # Msg derived objects but self._data does not exist (although it
+            # should since it is setup in the constructor!)
+            raise AttributeError("%r object has no attribute %r" % (self.__class__.__name__, key))
         if key == '_data':
             return self._data
-        return getattr(self._data, key)
+        return getattr(self._data, key) # Raises AttributeError if key does not exist
 
     def __setattr__(self, key, value):
         o = getattr(self._data, key)
@@ -99,10 +105,10 @@ class Msg(object):
 
     def toJSON(self, return_string=False, including_default_value_fields=False):
         if return_string:
-            return json_format.MessageToJson(self.__dict__['_data'], 
+            return json_format.MessageToJson(self.__dict__['_data'],
                                              including_default_value_fields=including_default_value_fields)
         return json_format.MessageToDict(self.__dict__['_data'],
-                    preserving_proto_field_name=True, 
+                    preserving_proto_field_name=True,
                                          including_default_value_fields=including_default_value_fields)
 
 
