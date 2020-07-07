@@ -24,7 +24,7 @@ sudo make install
 sudo ldconfig # refresh shared library cache.
 ```
 
-and the protocol buffers should be compiled from the specs file with:
+and the protocol buffers should be compiled from the specs directory with:
 
 ```
 protoc --python_out=../adsmsg/protobuf filename.proto

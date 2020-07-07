@@ -74,7 +74,6 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(0, j['reference_num'])
         self.assertEqual(0, j['rn_citations'])
         self.assertEqual(0, len(j['rn_citation_data']))
-        self.assertEqual(0, len(j['rn_citations_hist']))
 
 
     def verify_json(self, metrics_record, message):
@@ -96,7 +95,7 @@ class TestMsg(unittest.TestCase):
 
 
     def test_rn_dict_data(self):
-        """rn_citation_data stored as array of dicts, rn_citations_hist stored as dict"""
+        """rn_citation_data stored as array of dicts"""
         metrics_data = {'bibcode': '1954PhRv...93..256R',
                         'rn_citation_data':
                         [{"ref_norm": 0.2, "pubyear": 1954, "auth_norm": 0.25,
@@ -105,9 +104,6 @@ class TestMsg(unittest.TestCase):
                           "bibcode": "1954PhRv...96..730K", "cityear": 1954},
                          {"ref_norm": 0.06666666666666667, "pubyear": 1954, "auth_norm": 0.25,
                           "bibcode": "1955PhRv...98...79M", "cityear": 1955}],
-                        'rn_citations_hist':
-                        {"1992": 0.6800104945559491, "1961": 0.6003174603174604,
-                         "1963": 0.6717460317460318, "1955": 0.3380952380952381}
                         }
         m = MetricsRecord(**metrics_data)
 
@@ -121,12 +117,6 @@ class TestMsg(unittest.TestCase):
                 else:
                     self.assertEqual(t[i][key], getattr(p[i], key), msg='rn_citation_data field {}'.format(key))
 
-        
-        t = metrics_data['rn_citations_hist']  # test data
-        p = m.rn_citations_hist  # protobuf data
-        self.assertEqual(len(t), len(p))
-        for key in t:
-            self.assertAlmostEqual(t[key], p[key], 6, msg='rn_citations_hist field {}'.format(key))
         
         self.verify_json(m, 'dict test')
 
