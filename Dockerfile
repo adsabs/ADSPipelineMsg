@@ -1,10 +1,14 @@
-FROM phusion/baseimage:0.9.17
+FROM ubuntu:20.04
 
-# Install protobuf.
+# - Upgrade base security packages
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+    grep security /etc/apt/sources.list > /tmp/security.list && \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -oDir::Etc::Sourcelist=/tmp/security.list -yq && \
+    rm /tmp/security.list
+
+# - Compile and install protobuf
 RUN \
-    apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes autoconf automake libtool curl make g++ unzip wget && \
-    rm -rf /var/lib/apt/lists/* && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y autoconf automake libtool curl make g++ unzip wget && \
     wget https://github.com/google/protobuf/releases/download/v3.11.3/protobuf-python-3.11.3.tar.gz && \
     tar -zxvf protobuf-python-3.11.3.tar.gz && \
     cd protobuf-3.11.3/ && \
@@ -13,15 +17,24 @@ RUN \
     make install && \
     ldconfig
 
-RUN \
-    apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes python-pip ipython python-dev git && \
-    rm -rf /var/lib/apt/lists/*
-RUN pip install --upgrade pip
+# - Tools
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git curl wget nano vim less unzip bzip2 file rsync
 
+# - Python 2 & 3
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libpq-dev libxslt1-dev poppler-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python2 python2-dev python-setuptools python-libxml2
+RUN curl https://bootstrap.pypa.io/get-pip.py --output /tmp/get-pip.py && \
+        python2 /tmp/get-pip.py && \
+        rm -f /tmp/get-pip.py
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-libxml2
+RUN pip2 install --upgrade pip && \
+    pip3 install --upgrade pip
+
+# - adsmsg
 RUN git clone https://github.com/adsabs/ADSPipelineMsg /app
 WORKDIR /app
-RUN pip install --ignore-installed six -r requirements.txt
+RUN pip install -r requirements.txt && \
+    pip3 install -r requirements.txt
 
 CMD /bin/bash
 
