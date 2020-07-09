@@ -28,14 +28,19 @@ and the protocol buffers should be compiled from the specs directory with:
 
 ```
 protoc --python_out=../adsmsg/protobuf filename.proto
+# protoc does not express imports in a relative form, which messes up with our package structure
+# thus we force relative imports by changing the generated files with the next sed command:
+# 	https://github.com/protocolbuffers/protobuf/issues/1491#issuecomment-369324250
+sed -i 's/^import \([^ ]*\)_pb2 as \([^ ]*\)$/from . import \1_pb2 as \2/' ../adsmsg/protobuf/*_pb2.py
 ```
 
 Alternatively, a docker container can be built:
 
 ```
 docker build -t adsmsg .
-docker run -it --name adsmsg adsmsg
+docker run --rm -v `pwd`:/app --name adsmsg adsmsg make
 ```
+
 Or better, just run:
 
 ```

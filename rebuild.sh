@@ -7,5 +7,4 @@ if [ "`docker images adsmsg | grep adsmsg`" = "" ]; then
     #docker run -it --name adsmsg adsmsg
 fi
 
-docker rm adsmsg
-docker run -v `pwd`:/app --name adsmsg adsmsg make
+docker run --rm -v `pwd`:/app --name adsmsg adsmsg make
