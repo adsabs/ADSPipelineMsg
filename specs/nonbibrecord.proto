@@ -22,6 +22,9 @@ message NonBibRecord {
     Status status = 20;
     int32 norm_cites = 21;
     float citation_count_norm = 22;
+    repeated string bibgroup = 23;
+    repeated string bibgroup_facet = 24;
+
 }    
 
 
