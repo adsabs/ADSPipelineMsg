@@ -19,6 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='adsmsg',
   syntax='proto3',
   serialized_options=None,
+  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n\x17\x66ulltext_requests.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"=\n\x10\x46ulltextRequests\x12)\n\x08requests\x18\x01 \x03(\x0b\x32\x17.adsmsg.FulltextRequest\"g\n\x0f\x46ulltextRequest\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x10\n\x08provider\x18\x02 \x01(\t\x12\x11\n\tft_source\x18\x03 \x01(\t\x12\x1e\n\x06status\x18\x04 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3'
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
@@ -32,6 +33,7 @@ _FULLTEXTREQUESTS = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='requests', full_name='adsmsg.FulltextRequests.requests', index=0,
@@ -39,7 +41,7 @@ _FULLTEXTREQUESTS = _descriptor.Descriptor(
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -63,6 +65,7 @@ _FULLTEXTREQUEST = _descriptor.Descriptor(
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
+  create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
       name='bibcode', full_name='adsmsg.FulltextRequest.bibcode', index=0,
@@ -70,28 +73,28 @@ _FULLTEXTREQUEST = _descriptor.Descriptor(
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='provider', full_name='adsmsg.FulltextRequest.provider', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='ft_source', full_name='adsmsg.FulltextRequest.ft_source', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='status', full_name='adsmsg.FulltextRequest.status', index=3,
       number=4, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],

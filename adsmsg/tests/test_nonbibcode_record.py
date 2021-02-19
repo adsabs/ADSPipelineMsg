@@ -20,6 +20,8 @@ class TestMsg(unittest.TestCase):
         nonbib_data = {'bibcode': '2003ASPC..295..361M', 
                        'boost': 3.1,
                        'citation_count': 3,
+                       'bibgroup': ["Chandra/Technical"],
+                       'bibgroup_facet':  ["Chandra/Technical"],
                        'data': ['NED:15', 'CDS:5'],
                        'data_links_rows': [{'link_type': 'a', 'link_sub_type': 'b', 
                                             'url': ['http://a', 'http://b'],
@@ -44,6 +46,8 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(m.bibcode, nonbib_data['bibcode'])
         self.assertAlmostEqual(m.boost, nonbib_data['boost'], places=5)
         self.assertEqual(m.citation_count, nonbib_data['citation_count'])
+        self.assertEqual(m.bibgroup, nonbib_data['bibgroup'])
+        self.assertEqual(m.bibgroup_facet, nonbib_data['bibgroup_facet'])
         self.assertEqual(m.esource, nonbib_data['esource'])
         self.assertEqual(m.grants, nonbib_data['grants'])
         self.assertEqual(m.ned_objects, nonbib_data['ned_objects'])
