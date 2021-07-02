@@ -19,7 +19,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='adsmsg',
   syntax='proto3',
   serialized_options=None,
-  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n\x0cstatus.proto\x12\x06\x61\x64smsg*7\n\x06Status\x12\n\n\x06\x61\x63tive\x10\x00\x12\x0b\n\x07\x64\x65leted\x10\x01\x12\x07\n\x03new\x10\x02\x12\x0b\n\x07updated\x10\x03\x62\x06proto3'
 )
 
@@ -28,28 +27,23 @@ _STATUS = _descriptor.EnumDescriptor(
   full_name='adsmsg.Status',
   filename=None,
   file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='active', index=0, number=0,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
     _descriptor.EnumValueDescriptor(
       name='deleted', index=1, number=1,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
     _descriptor.EnumValueDescriptor(
       name='new', index=2, number=2,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
     _descriptor.EnumValueDescriptor(
       name='updated', index=3, number=3,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,

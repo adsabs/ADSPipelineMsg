@@ -19,7 +19,6 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='adsmsg',
   syntax='proto3',
   serialized_options=None,
-  create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n#citation_changes_content_type.proto\x12\x06\x61\x64smsg*6\n\x19\x43itationChangeContentType\x12\x07\n\x03\x64oi\x10\x00\x12\x07\n\x03pid\x10\x01\x12\x07\n\x03url\x10\x02\x62\x06proto3'
 )
 
@@ -28,23 +27,19 @@ _CITATIONCHANGECONTENTTYPE = _descriptor.EnumDescriptor(
   full_name='adsmsg.CitationChangeContentType',
   filename=None,
   file=DESCRIPTOR,
-  create_key=_descriptor._internal_create_key,
   values=[
     _descriptor.EnumValueDescriptor(
       name='doi', index=0, number=0,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
     _descriptor.EnumValueDescriptor(
       name='pid', index=1, number=1,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
     _descriptor.EnumValueDescriptor(
       name='url', index=2, number=2,
       serialized_options=None,
-      type=None,
-      create_key=_descriptor._internal_create_key),
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,

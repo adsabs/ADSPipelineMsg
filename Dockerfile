@@ -20,21 +20,18 @@ RUN \
 # - Tools
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git curl wget nano vim less unzip bzip2 file rsync
 
-# - Python 2 & 3
+# - Python 3
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential libpq-dev libxslt1-dev poppler-utils
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python2 python2-dev python-setuptools python-libxml2
-RUN curl https://bootstrap.pypa.io/get-pip.py --output /tmp/get-pip.py && \
-        python2 /tmp/get-pip.py && \
-        rm -f /tmp/get-pip.py
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-libxml2
-RUN pip2 install --upgrade pip && \
-    pip3 install --upgrade pip
+RUN curl https://bootstrap.pypa.io/get-pip.py --output /tmp/get-pip.py && \
+        python3 /tmp/get-pip.py && \
+        rm -f /tmp/get-pip.py
+RUN pip3 install --upgrade pip
 
 # - adsmsg
 RUN git clone https://github.com/adsabs/ADSPipelineMsg /app
 WORKDIR /app
-RUN pip install -r requirements.txt && \
-    pip3 install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 CMD /bin/bash
 

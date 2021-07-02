@@ -34,6 +34,7 @@ class TestMsg(unittest.TestCase):
                        'citation_count_norm': .2,
                        'esource': ['a', 's', 'd', 'f'],
                        'grants': ['g1', 'g2'],
+                       'identifier': ['bib', 'alt'],
                        'ned_objects': ['ned1', 'ned2'],
                        'norm_cites': 2,
                        'read_count': 7,
@@ -50,6 +51,7 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(m.bibgroup_facet, nonbib_data['bibgroup_facet'])
         self.assertEqual(m.esource, nonbib_data['esource'])
         self.assertEqual(m.grants, nonbib_data['grants'])
+        self.assertEqual(m.identifier, nonbib_data['identifier'])
         self.assertEqual(m.ned_objects, nonbib_data['ned_objects'])
         self.assertEqual(m.norm_cites, nonbib_data['norm_cites'])
         self.assertEqual(m.read_count, nonbib_data['read_count'])
