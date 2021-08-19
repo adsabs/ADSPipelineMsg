@@ -52,3 +52,35 @@ message DataLinksRecordList {
 	repeated DataLinksRecord datalinks_records = 1;
 	Status status = 2;
 }
+
+
+// holds elements from a row in the nonbib DocumentsTable
+message DocumentLinks {
+	string doi = 1;
+	string arxiv = 2;
+	string data = 3;
+	string esource = 4;
+	string associated = 5;
+	string presentations = 6;
+	string inspire = 7;
+	string toc = 8;
+	string librarycatalog = 9;
+	string citation = 10;
+	string references = 11;
+	string type = 12;
+	string url = 13;
+	string title = 14;
+	string count = 15;
+}
+
+message DocumentRow {
+	string bibcode = 1;
+	repeated string identifiers = 2;
+	DocumentLinks document_links = 3;
+}
+
+message DocumentList {
+	repeated DocumentRow document = 1;
+	Status status = 2;
+}
+
