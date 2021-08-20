@@ -1,7 +1,6 @@
 
 import unittest
 from adsmsg import msg
-from google.protobuf.struct_pb2 import Struct
 from google.protobuf import json_format
 
 from adsmsg.nonbibrecord import NonBibRecord, DataLinksRecord, DataLinksRecordList, DocumentRecord, DocumentRecords
@@ -253,14 +252,6 @@ class TestMsg(unittest.TestCase):
 
         n = DocumentRecords(**document_list)
         self.assertEqual(n.status, document_list['status'])
-        # for document_record in document_list['document_records']:
-        #     m = DocumentRecord()
-        #     m.bibcode = document_record['bibcode']
-        #     m.identifier.extend(document_record['identifier'])
-        #     m.links = Struct()
-        #     m.links.update(document_record['links'])
-        #     n.document_records.add(m)
-        #
         for i, document_record in enumerate(document_list['document_records']):
             self.assertEqual(n.document_records[i].bibcode, document_record['bibcode'])
             self.assertEqual(n.document_records[i].identifier, document_record['identifier'])
