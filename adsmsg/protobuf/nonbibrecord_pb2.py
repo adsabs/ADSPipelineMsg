@@ -14,15 +14,16 @@ _sym_db = _symbol_database.Default()
 
 
 import status_pb2 as status__pb2
+from google.protobuf import struct_pb2 as google_dot_protobuf_dot_struct__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='nonbibrecord.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x12nonbibrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"\xb1\x03\n\x0cNonBibRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x16\n\x0esimbad_objects\x18\x03 \x03(\t\x12\x0e\n\x06grants\x18\x04 \x03(\t\x12\r\n\x05\x62oost\x18\x06 \x01(\x02\x12\x16\n\x0e\x63itation_count\x18\x07 \x01(\x05\x12\x12\n\nread_count\x18\x08 \x01(\x05\x12\x0f\n\x07readers\x18\t \x03(\t\x12\x11\n\treference\x18\x0c \x03(\t\x12\x13\n\x0bned_objects\x18\r \x03(\t\x12\x0c\n\x04\x64\x61ta\x18\x0e \x03(\t\x12\x19\n\x11total_link_counts\x18\x0f \x01(\x05\x12\x0f\n\x07\x65source\x18\x11 \x03(\t\x12\x10\n\x08property\x18\x12 \x03(\t\x12-\n\x0f\x64\x61ta_links_rows\x18\x13 \x03(\x0b\x32\x14.adsmsg.DataLinksRow\x12\x1e\n\x06status\x18\x14 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x12\n\nnorm_cites\x18\x15 \x01(\x05\x12\x1b\n\x13\x63itation_count_norm\x18\x16 \x01(\x02\x12\x10\n\x08\x62ibgroup\x18\x17 \x03(\t\x12\x16\n\x0e\x62ibgroup_facet\x18\x18 \x03(\t\"h\n\x0c\x44\x61taLinksRow\x12\x11\n\tlink_type\x18\x01 \x01(\t\x12\x15\n\rlink_sub_type\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x03(\t\x12\r\n\x05title\x18\x04 \x03(\t\x12\x12\n\nitem_count\x18\x05 \x01(\x05\"`\n\x10NonBibRecordList\x12,\n\x0enonbib_records\x18\x01 \x03(\x0b\x32\x14.adsmsg.NonBibRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"Q\n\x0f\x44\x61taLinksRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12-\n\x0f\x64\x61ta_links_rows\x18\x02 \x03(\x0b\x32\x14.adsmsg.DataLinksRow\"i\n\x13\x44\x61taLinksRecordList\x12\x32\n\x11\x64\x61talinks_records\x18\x01 \x03(\x0b\x32\x17.adsmsg.DataLinksRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"\x8a\x02\n\rDocumentLinks\x12\x0b\n\x03\x64oi\x18\x01 \x01(\t\x12\r\n\x05\x61rxiv\x18\x02 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\t\x12\x0f\n\x07\x65source\x18\x04 \x01(\t\x12\x12\n\nassociated\x18\x05 \x01(\t\x12\x15\n\rpresentations\x18\x06 \x01(\t\x12\x0f\n\x07inspire\x18\x07 \x01(\t\x12\x0b\n\x03toc\x18\x08 \x01(\t\x12\x16\n\x0elibrarycatalog\x18\t \x01(\t\x12\x10\n\x08\x63itation\x18\n \x01(\t\x12\x12\n\nreferences\x18\x0b \x01(\t\x12\x0c\n\x04type\x18\x0c \x01(\t\x12\x0b\n\x03url\x18\r \x01(\t\x12\r\n\x05title\x18\x0e \x01(\t\x12\r\n\x05\x63ount\x18\x0f \x01(\t\"b\n\x0b\x44ocumentRow\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x13\n\x0bidentifiers\x18\x02 \x03(\t\x12-\n\x0e\x64ocument_links\x18\x03 \x01(\x0b\x32\x15.adsmsg.DocumentLinks\"U\n\x0c\x44ocumentList\x12%\n\x08\x64ocument\x18\x01 \x03(\x0b\x32\x13.adsmsg.DocumentRow\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
+  serialized_pb=_b('\n\x12nonbibrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xb1\x03\n\x0cNonBibRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x16\n\x0esimbad_objects\x18\x03 \x03(\t\x12\x0e\n\x06grants\x18\x04 \x03(\t\x12\r\n\x05\x62oost\x18\x06 \x01(\x02\x12\x16\n\x0e\x63itation_count\x18\x07 \x01(\x05\x12\x12\n\nread_count\x18\x08 \x01(\x05\x12\x0f\n\x07readers\x18\t \x03(\t\x12\x11\n\treference\x18\x0c \x03(\t\x12\x13\n\x0bned_objects\x18\r \x03(\t\x12\x0c\n\x04\x64\x61ta\x18\x0e \x03(\t\x12\x19\n\x11total_link_counts\x18\x0f \x01(\x05\x12\x0f\n\x07\x65source\x18\x11 \x03(\t\x12\x10\n\x08property\x18\x12 \x03(\t\x12-\n\x0f\x64\x61ta_links_rows\x18\x13 \x03(\x0b\x32\x14.adsmsg.DataLinksRow\x12\x1e\n\x06status\x18\x14 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x12\n\nnorm_cites\x18\x15 \x01(\x05\x12\x1b\n\x13\x63itation_count_norm\x18\x16 \x01(\x02\x12\x10\n\x08\x62ibgroup\x18\x17 \x03(\t\x12\x16\n\x0e\x62ibgroup_facet\x18\x18 \x03(\t\"h\n\x0c\x44\x61taLinksRow\x12\x11\n\tlink_type\x18\x01 \x01(\t\x12\x15\n\rlink_sub_type\x18\x02 \x01(\t\x12\x0b\n\x03url\x18\x03 \x03(\t\x12\r\n\x05title\x18\x04 \x03(\t\x12\x12\n\nitem_count\x18\x05 \x01(\x05\"`\n\x10NonBibRecordList\x12,\n\x0enonbib_records\x18\x01 \x03(\x0b\x32\x14.adsmsg.NonBibRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"Q\n\x0f\x44\x61taLinksRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12-\n\x0f\x64\x61ta_links_rows\x18\x02 \x03(\x0b\x32\x14.adsmsg.DataLinksRow\"i\n\x13\x44\x61taLinksRecordList\x12\x32\n\x11\x64\x61talinks_records\x18\x01 \x03(\x0b\x32\x17.adsmsg.DataLinksRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"]\n\x0e\x44ocumentRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x12\n\nidentifier\x18\x02 \x03(\t\x12&\n\x05links\x18\x03 \x01(\x0b\x32\x17.google.protobuf.Struct\"c\n\x0f\x44ocumentRecords\x12\x30\n\x10\x64ocument_records\x18\x01 \x03(\x0b\x32\x16.adsmsg.DocumentRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
   ,
-  dependencies=[status__pb2.DESCRIPTOR,])
+  dependencies=[status__pb2.DESCRIPTOR,google_dot_protobuf_dot_struct__pb2.DESCRIPTOR,])
 
 
 
@@ -179,8 +180,8 @@ _NONBIBRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=45,
-  serialized_end=478,
+  serialized_start=75,
+  serialized_end=508,
 )
 
 
@@ -238,8 +239,8 @@ _DATALINKSROW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=480,
-  serialized_end=584,
+  serialized_start=510,
+  serialized_end=614,
 )
 
 
@@ -276,8 +277,8 @@ _NONBIBRECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=586,
-  serialized_end=682,
+  serialized_start=616,
+  serialized_end=712,
 )
 
 
@@ -314,8 +315,8 @@ _DATALINKSRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=684,
-  serialized_end=765,
+  serialized_start=714,
+  serialized_end=795,
 )
 
 
@@ -352,163 +353,34 @@ _DATALINKSRECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=767,
-  serialized_end=872,
+  serialized_start=797,
+  serialized_end=902,
 )
 
 
-_DOCUMENTLINKS = _descriptor.Descriptor(
-  name='DocumentLinks',
-  full_name='adsmsg.DocumentLinks',
+_DOCUMENTRECORD = _descriptor.Descriptor(
+  name='DocumentRecord',
+  full_name='adsmsg.DocumentRecord',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='doi', full_name='adsmsg.DocumentLinks.doi', index=0,
+      name='bibcode', full_name='adsmsg.DocumentRecord.bibcode', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='arxiv', full_name='adsmsg.DocumentLinks.arxiv', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='data', full_name='adsmsg.DocumentLinks.data', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='esource', full_name='adsmsg.DocumentLinks.esource', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='associated', full_name='adsmsg.DocumentLinks.associated', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='presentations', full_name='adsmsg.DocumentLinks.presentations', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='inspire', full_name='adsmsg.DocumentLinks.inspire', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='toc', full_name='adsmsg.DocumentLinks.toc', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='librarycatalog', full_name='adsmsg.DocumentLinks.librarycatalog', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='citation', full_name='adsmsg.DocumentLinks.citation', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='references', full_name='adsmsg.DocumentLinks.references', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='type', full_name='adsmsg.DocumentLinks.type', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='url', full_name='adsmsg.DocumentLinks.url', index=12,
-      number=13, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='title', full_name='adsmsg.DocumentLinks.title', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='count', full_name='adsmsg.DocumentLinks.count', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=875,
-  serialized_end=1141,
-)
-
-
-_DOCUMENTROW = _descriptor.Descriptor(
-  name='DocumentRow',
-  full_name='adsmsg.DocumentRow',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='bibcode', full_name='adsmsg.DocumentRow.bibcode', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='identifiers', full_name='adsmsg.DocumentRow.identifiers', index=1,
+      name='identifier', full_name='adsmsg.DocumentRecord.identifier', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='document_links', full_name='adsmsg.DocumentRow.document_links', index=2,
+      name='links', full_name='adsmsg.DocumentRecord.links', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -526,27 +398,27 @@ _DOCUMENTROW = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1143,
-  serialized_end=1241,
+  serialized_start=904,
+  serialized_end=997,
 )
 
 
-_DOCUMENTLIST = _descriptor.Descriptor(
-  name='DocumentList',
-  full_name='adsmsg.DocumentList',
+_DOCUMENTRECORDS = _descriptor.Descriptor(
+  name='DocumentRecords',
+  full_name='adsmsg.DocumentRecords',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='document', full_name='adsmsg.DocumentList.document', index=0,
+      name='document_records', full_name='adsmsg.DocumentRecords.document_records', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='status', full_name='adsmsg.DocumentList.status', index=1,
+      name='status', full_name='adsmsg.DocumentRecords.status', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -564,8 +436,8 @@ _DOCUMENTLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1243,
-  serialized_end=1328,
+  serialized_start=999,
+  serialized_end=1098,
 )
 
 _NONBIBRECORD.fields_by_name['data_links_rows'].message_type = _DATALINKSROW
@@ -575,17 +447,16 @@ _NONBIBRECORDLIST.fields_by_name['status'].enum_type = status__pb2._STATUS
 _DATALINKSRECORD.fields_by_name['data_links_rows'].message_type = _DATALINKSROW
 _DATALINKSRECORDLIST.fields_by_name['datalinks_records'].message_type = _DATALINKSRECORD
 _DATALINKSRECORDLIST.fields_by_name['status'].enum_type = status__pb2._STATUS
-_DOCUMENTROW.fields_by_name['document_links'].message_type = _DOCUMENTLINKS
-_DOCUMENTLIST.fields_by_name['document'].message_type = _DOCUMENTROW
-_DOCUMENTLIST.fields_by_name['status'].enum_type = status__pb2._STATUS
+_DOCUMENTRECORD.fields_by_name['links'].message_type = google_dot_protobuf_dot_struct__pb2._STRUCT
+_DOCUMENTRECORDS.fields_by_name['document_records'].message_type = _DOCUMENTRECORD
+_DOCUMENTRECORDS.fields_by_name['status'].enum_type = status__pb2._STATUS
 DESCRIPTOR.message_types_by_name['NonBibRecord'] = _NONBIBRECORD
 DESCRIPTOR.message_types_by_name['DataLinksRow'] = _DATALINKSROW
 DESCRIPTOR.message_types_by_name['NonBibRecordList'] = _NONBIBRECORDLIST
 DESCRIPTOR.message_types_by_name['DataLinksRecord'] = _DATALINKSRECORD
 DESCRIPTOR.message_types_by_name['DataLinksRecordList'] = _DATALINKSRECORDLIST
-DESCRIPTOR.message_types_by_name['DocumentLinks'] = _DOCUMENTLINKS
-DESCRIPTOR.message_types_by_name['DocumentRow'] = _DOCUMENTROW
-DESCRIPTOR.message_types_by_name['DocumentList'] = _DOCUMENTLIST
+DESCRIPTOR.message_types_by_name['DocumentRecord'] = _DOCUMENTRECORD
+DESCRIPTOR.message_types_by_name['DocumentRecords'] = _DOCUMENTRECORDS
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 NonBibRecord = _reflection.GeneratedProtocolMessageType('NonBibRecord', (_message.Message,), dict(
@@ -623,26 +494,19 @@ DataLinksRecordList = _reflection.GeneratedProtocolMessageType('DataLinksRecordL
   ))
 _sym_db.RegisterMessage(DataLinksRecordList)
 
-DocumentLinks = _reflection.GeneratedProtocolMessageType('DocumentLinks', (_message.Message,), dict(
-  DESCRIPTOR = _DOCUMENTLINKS,
+DocumentRecord = _reflection.GeneratedProtocolMessageType('DocumentRecord', (_message.Message,), dict(
+  DESCRIPTOR = _DOCUMENTRECORD,
   __module__ = 'nonbibrecord_pb2'
-  # @@protoc_insertion_point(class_scope:adsmsg.DocumentLinks)
+  # @@protoc_insertion_point(class_scope:adsmsg.DocumentRecord)
   ))
-_sym_db.RegisterMessage(DocumentLinks)
+_sym_db.RegisterMessage(DocumentRecord)
 
-DocumentRow = _reflection.GeneratedProtocolMessageType('DocumentRow', (_message.Message,), dict(
-  DESCRIPTOR = _DOCUMENTROW,
+DocumentRecords = _reflection.GeneratedProtocolMessageType('DocumentRecords', (_message.Message,), dict(
+  DESCRIPTOR = _DOCUMENTRECORDS,
   __module__ = 'nonbibrecord_pb2'
-  # @@protoc_insertion_point(class_scope:adsmsg.DocumentRow)
+  # @@protoc_insertion_point(class_scope:adsmsg.DocumentRecords)
   ))
-_sym_db.RegisterMessage(DocumentRow)
-
-DocumentList = _reflection.GeneratedProtocolMessageType('DocumentList', (_message.Message,), dict(
-  DESCRIPTOR = _DOCUMENTLIST,
-  __module__ = 'nonbibrecord_pb2'
-  # @@protoc_insertion_point(class_scope:adsmsg.DocumentList)
-  ))
-_sym_db.RegisterMessage(DocumentList)
+_sym_db.RegisterMessage(DocumentRecords)
 
 
 # @@protoc_insertion_point(module_scope)

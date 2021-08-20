@@ -1,5 +1,6 @@
 from .msg import Msg
 from .protobuf import nonbibrecord_pb2
+from google.protobuf.struct_pb2 import Struct
 
 class NonBibRecord(Msg):
 
@@ -44,3 +45,17 @@ class DataLinksRecord(Msg):
 class DataLinksRecordList(Msg):
     def __init__(self, *args, **kwargs):
         super(DataLinksRecordList, self).__init__(nonbibrecord_pb2.DataLinksRecordList(), args, kwargs)
+
+
+# for resolver db 2.0
+class DocumentRecord(Msg):
+    def __init__(self, *args, **kwargs):
+        super(DocumentRecord, self).__init__(nonbibrecord_pb2.DocumentRecord(), args, kwargs)
+
+
+class DocumentRecords(Msg):
+    def __init__(self, *args, **kwargs):
+        """converts list of dicts to list of protobuf instances of message DocumentRecord"""
+        if 'document_records' in kwargs:
+            kwargs['document_records'] = [DocumentRecord(**x)._data for x in kwargs['document_records']]
+        super(DocumentRecords, self).__init__(nonbibrecord_pb2.DocumentRecords(), args, kwargs)

@@ -1,6 +1,7 @@
 syntax = "proto3";
 import "status.proto";
 package adsmsg;
+import "google/protobuf/struct.proto";
 
 message NonBibRecord {
     string bibcode = 1;
@@ -54,33 +55,15 @@ message DataLinksRecordList {
 }
 
 
-// holds elements from a row in the nonbib DocumentsTable
-message DocumentLinks {
-	string doi = 1;
-	string arxiv = 2;
-	string data = 3;
-	string esource = 4;
-	string associated = 5;
-	string presentations = 6;
-	string inspire = 7;
-	string toc = 8;
-	string librarycatalog = 9;
-	string citation = 10;
-	string references = 11;
-	string type = 12;
-	string url = 13;
-	string title = 14;
-	string count = 15;
-}
-
-message DocumentRow {
+// for resolver db 2.0
+message DocumentRecord {
 	string bibcode = 1;
-	repeated string identifiers = 2;
-	DocumentLinks document_links = 3;
+	repeated string identifier = 2;
+	google.protobuf.Struct links = 3;
 }
 
-message DocumentList {
-	repeated DocumentRow document = 1;
+message DocumentRecords {
+	repeated DocumentRecord document_records = 1;
 	Status status = 2;
 }
 
