@@ -3,7 +3,8 @@ import unittest
 from adsmsg import msg
 from google.protobuf import json_format
 
-from adsmsg.nonbibrecord import NonBibRecord, DataLinksRecord, DataLinksRecordList, DocumentRecord, DocumentRecords
+from adsmsg.nonbibrecord import NonBibRecord, DataLinksRecord, DataLinksRecordList, \
+    DocumentRecord, DocumentRecords, DataSource, DataSourceList
 
 class TestMsg(unittest.TestCase):
 
@@ -188,10 +189,10 @@ class TestMsg(unittest.TestCase):
         self.assertEqual(m.identifier, document_record['identifier'])
         self.assertEqual(json_format.MessageToDict(m.links), document_record['links'])
 
-    def test_document_list(self):
+    def test_document_records(self):
         """test creation of protobuf"""
 
-        document_list = {
+        document_records = {
             'status': 2,    #name='new', index=2, number=2,
             'document_records':[
                 {
@@ -250,12 +251,55 @@ class TestMsg(unittest.TestCase):
             ]
         }
 
-        n = DocumentRecords(**document_list)
-        self.assertEqual(n.status, document_list['status'])
-        for i, document_record in enumerate(document_list['document_records']):
+        n = DocumentRecords(**document_records)
+        self.assertEqual(n.status, document_records['status'])
+        for i, document_record in enumerate(document_records['document_records']):
             self.assertEqual(n.document_records[i].bibcode, document_record['bibcode'])
             self.assertEqual(n.document_records[i].identifier, document_record['identifier'])
             self.assertEqual(json_format.MessageToDict(n.document_records[i].links), document_record['links'])
+
+
+    def test_data_source(self):
+        """test creation of protobuf
+
+        should include at least all fields listed AdsDataSqlSync:adsdata/run.py:nonbib_to_master_fields"""
+        data_source = {
+            'id': 'SIMBAD',
+            'name': 'SIMBAD Database at the CDS',
+            'url': 'http://simbad.u-strasbg.fr',
+        }
+        m = DataSource(**data_source)
+        self.assertEqual(m.name, data_source['name'])
+        self.assertEqual(m.url, data_source['url'])
+
+    def test_data_source_list(self):
+        """test creation of protobuf"""
+
+        data_source_list = {
+            'status': 2,    #name='new', index=2, number=2,
+            'data_source':[
+                {
+                    'id': 'SIMBAD',
+                    'name': 'SIMBAD Database at the CDS',
+                    'url': 'http://simbad.u-strasbg.fr',
+                }, {
+                    'id': 'XMM',
+                    'name': 'XMM Newton Science Archive',
+                    'url': 'http://nxsa.esac.esa.int',
+                }, {
+                    'id': 'NED',
+                    'name': 'NASA/IPAC Extragalactic Database',
+                    'url': 'https://ned.ipac.caltech.edu',
+                }
+            ]
+        }
+
+        n = DataSourceList(**data_source_list)
+        self.assertEqual(n.status, data_source_list['status'])
+        for i, data_source in enumerate(data_source_list['data_source']):
+            self.assertEqual(n.data_source[i].id, data_source['id'])
+            self.assertEqual(n.data_source[i].name, data_source['name'])
+            self.assertEqual(n.data_source[i].url, data_source['url'])
 
 
 if __name__ == '__main__':

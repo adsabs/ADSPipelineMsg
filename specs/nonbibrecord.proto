@@ -67,3 +67,13 @@ message DocumentRecords {
 	Status status = 2;
 }
 
+message DataSource {
+    string id = 1;
+    string name = 2;
+    string url = 3;
+}
+
+message DataSourceList {
+	repeated DataSource data_source = 1;
+	Status status = 2;
+}

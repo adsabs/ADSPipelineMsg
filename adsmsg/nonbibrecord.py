@@ -59,3 +59,16 @@ class DocumentRecords(Msg):
         if 'document_records' in kwargs:
             kwargs['document_records'] = [DocumentRecord(**x)._data for x in kwargs['document_records']]
         super(DocumentRecords, self).__init__(nonbibrecord_pb2.DocumentRecords(), args, kwargs)
+
+
+class DataSource(Msg):
+    def __init__(self, *args, **kwargs):
+        super(DataSource, self).__init__(nonbibrecord_pb2.DataSource(), args, kwargs)
+
+
+class DataSourceList(Msg):
+    def __init__(self, *args, **kwargs):
+        """converts list of dicts to list of protobuf instances of message DataSource"""
+        if 'data_source' in kwargs:
+            kwargs['data_source'] = [DataSource(**x)._data for x in kwargs['data_source']]
+        super(DataSourceList, self).__init__(nonbibrecord_pb2.DataSourceList(), args, kwargs)
