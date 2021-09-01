@@ -11,11 +11,9 @@ from .metrics_record import MetricsRecord, \
 from .nonbibrecord import NonBibRecord,\
                 NonBibRecordList, \
                 DataLinksRecord, \
-                DataLinksRecordList, \
-                DocumentRecord, \
-                DocumentRecords, \
-                DataSource, \
-                DataSourceList
+                DataLinksRecordList
+from .master import DocumentRecord, \
+                DocumentRecords
 from .orcid_claims import OrcidClaims
 from .status import Status
 from .citation_changes import CitationChanges, CitationChange
