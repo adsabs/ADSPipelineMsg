@@ -1,0 +1,42 @@
+syntax = "proto3";
+import "status.proto";
+package adsmsg;
+
+
+// for resolver db 2.0
+
+// both title and count are optional here
+message LinkTypeRecord {
+	repeated string url = 1;
+	repeated string title = 2;
+	int32 count = 3;
+}
+
+// all fields are optional here
+message LinkRecord {
+    repeated string ARXIV = 1;
+    repeated string DOI = 2;
+    map<string, LinkTypeRecord> DATA = 3;
+    map<string, LinkTypeRecord> ESOURCE = 4;
+    LinkTypeRecord ASSOCIATED = 5;
+    LinkTypeRecord INSPIRE = 6;
+    LinkTypeRecord LIBRARYCATALOG = 7;
+    LinkTypeRecord PRESENTATION = 8;
+    LinkTypeRecord TOC = 9;
+    bool CITATIONS = 10;
+    bool GRAPHICS = 11;
+    bool METRICS = 12;
+    bool OPENURL = 13;
+    bool REFERENCES = 14;
+}
+
+message DocumentRecord {
+	string bibcode = 1;
+	repeated string identifier = 2;
+	LinkRecord links = 3;
+}
+
+message DocumentRecords {
+	repeated DocumentRecord document_records = 1;
+	Status status = 2;
+}

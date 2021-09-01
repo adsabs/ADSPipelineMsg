@@ -1,6 +1,5 @@
 
 import unittest
-from adsmsg import msg
 
 from adsmsg.nonbibrecord import NonBibRecord, DataLinksRecord, DataLinksRecordList
 
@@ -151,6 +150,7 @@ class TestMsg(unittest.TestCase):
                                  datalinks_list['datalinks_records'][i]['data_links_rows'][j]['title'])
                 self.assertEqual(m.datalinks_records[i].data_links_rows[j].item_count,
                                  datalinks_list['datalinks_records'][i]['data_links_rows'][j]['item_count'])
+
 
 if __name__ == '__main__':
     unittest.main()

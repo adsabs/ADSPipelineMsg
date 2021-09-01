@@ -12,6 +12,8 @@ from .nonbibrecord import NonBibRecord,\
                 NonBibRecordList, \
                 DataLinksRecord, \
                 DataLinksRecordList
+from .master import DocumentRecord, \
+                DocumentRecords
 from .orcid_claims import OrcidClaims
 from .status import Status
 from .citation_changes import CitationChanges, CitationChange
