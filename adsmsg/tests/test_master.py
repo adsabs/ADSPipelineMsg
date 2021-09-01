@@ -21,8 +21,8 @@ class TestMsg(unittest.TestCase):
                             'bibcode': '2021ApJ...913L...7A',
                             'identifier': ['2021ApJ...913L...7A', '2020arXiv201014533T'],
                             'links': {
-                                'DOI': '10.3847/2041-8213/abe949',
-                                'ARXIV': 'arXiv:2010.14533',
+                                'DOI': ['10.3847/2041-8213/abe949'],
+                                'ARXIV': ['arXiv:2010.14533'],
                                 'DATA': {
                                     'SIMBAD': {
                                         'url': ['http://simbad.u-strasbg.fr/simbo.pl?bibcode=2021ApJ...913L...7A'],
@@ -58,8 +58,8 @@ class TestMsg(unittest.TestCase):
                     'bibcode': '2021ApJ...913L...7A',
                     'identifier': ['2021ApJ...913L...7A', '2020arXiv201014533T'],
                     'links': {
-                        'DOI': '10.3847/2041-8213/abe949',
-                        'ARXIV': 'arXiv:2010.14533',
+                        'DOI': ['10.3847/2041-8213/abe949'],
+                        'ARXIV': ['arXiv:2010.14533'],
                         "DATA": {
                             "SIMBAD": {"url": ["http://simbad.u-strasbg.fr/simbo.pl?bibcode=2021ApJ...913L...7A"],
                                        "title": ["http://simbad.u-strasbg.fr/simbo.pl?bibcode=2021ApJ...913L...7A"],
@@ -81,8 +81,8 @@ class TestMsg(unittest.TestCase):
                     'bibcode': '2012Sci...338..355D',
                     'identifier': ['2012Sci...338..355D', '2012arXiv1210.6132D'],
                     'links': {
-                        'DOI': '10.1126/science.1224768',
-                        'ARXIV': 'arXiv:1210.6132',
+                        'DOI': ['10.1126/science.1224768'],
+                        'ARXIV': ['arXiv:1210.6132'],
                         'DATA': {
                             'CDS': {'url': ['http://vizier.u-strasbg.fr/viz-bin/cat/J/other/Sci/338.355'],
                                     'title': ['http://vizier.u-strasbg.fr/viz-bin/cat/J/other/Sci/338.355'],
@@ -108,7 +108,7 @@ class TestMsg(unittest.TestCase):
                         'bibcode': '1995Natur.375..659T',
                         'identifier': ['1995Natur.375..659T','10.1038/375659a0'],
                         'links': {
-                            'DOI': '10.1038/375659a0',
+                            'DOI': ['10.1038/375659a0'],
                             'DATA': {
                                 'HEASARC': {'url': ['http://heasarc.gsfc.nasa.gov/cgi-bin/W3Browse/biblink.pl?code=1995Natur.375..659T'],
                                             'title': ['http://heasarc.gsfc.nasa.gov/cgi-bin/W3Browse/biblink.pl?code=1995Natur.375..659T'],

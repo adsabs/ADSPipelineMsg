@@ -14,8 +14,8 @@ message LinkTypeRecord {
 
 // all fields are optional here
 message LinkRecord {
-    string ARXIV = 1;
-    string DOI = 2;
+    repeated string ARXIV = 1;
+    repeated string DOI = 2;
     map<string, LinkTypeRecord> DATA = 3;
     map<string, LinkTypeRecord> ESOURCE = 4;
     LinkTypeRecord ASSOCIATED = 5;

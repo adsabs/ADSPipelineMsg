@@ -13,6 +13,11 @@ class DocumentRecord(Msg):
             for key in links.keys():
                 if isinstance(links[key], str) or isinstance(links[key], bool):
                     setattr(link_record, key, links[key])
+                elif isinstance(links[key], list):
+                    if key == 'ARXIV':
+                        instance.links.ARXIV.extend(links[key])
+                    elif key == 'DOI':
+                        instance.links.DOI.extend(links[key])
                 elif isinstance(links[key], dict):
                     if key == 'DATA':
                         for sub_type_key in links[key].keys():
