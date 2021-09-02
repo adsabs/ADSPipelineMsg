@@ -125,7 +125,7 @@ class TestMsg(unittest.TestCase):
                                          'title': ['https://doi.org/10.1038%2F375659a0']}
                         },
                         'INSPIRE': {'url': ['http://inspirehep.net/search?p=find+j+NATUA,375,659']},
-                        'TOC': {'url': ['/abs/1995Natur.375..659T/toc']}}
+                        'TOC': True}
                     }
             ]
         }

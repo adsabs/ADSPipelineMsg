@@ -22,12 +22,12 @@ message LinkRecord {
     LinkTypeRecord INSPIRE = 6;
     LinkTypeRecord LIBRARYCATALOG = 7;
     LinkTypeRecord PRESENTATION = 8;
-    LinkTypeRecord TOC = 9;
-    bool CITATIONS = 10;
-    bool GRAPHICS = 11;
-    bool METRICS = 12;
-    bool OPENURL = 13;
-    bool REFERENCES = 14;
+    bool CITATIONS = 9;
+    bool GRAPHICS = 10;
+    bool METRICS = 11;
+    bool OPENURL = 12;
+    bool REFERENCES = 13;
+    bool TOC = 14;
 }
 
 message DocumentRecord {
