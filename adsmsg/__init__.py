@@ -8,7 +8,7 @@ from .fulltext_requests import FulltextRequests
 from .fulltext_update import FulltextUpdate
 from .metrics_record import MetricsRecord, \
                             MetricsRecordList
-from .nonbibrecord import NonBibRecord,\
+from .nonbibrecord import NonBibRecord, \
                 NonBibRecordList, \
                 DataLinksRecord, \
                 DataLinksRecordList

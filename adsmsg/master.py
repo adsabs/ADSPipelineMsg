@@ -11,7 +11,7 @@ class DocumentRecord(Msg):
         if links:
             link_record = instance.links
             for key in links.keys():
-                if isinstance(links[key], str) or isinstance(links[key], bool):
+                if isinstance(links[key], bool):
                     setattr(link_record, key, links[key])
                 elif isinstance(links[key], list):
                     if key == 'ARXIV':
