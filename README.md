@@ -15,9 +15,9 @@ To modify message definition, Protocol Buffers compiler should be installed:
 
 ```
 sudo apt-get install autoconf automake libtool curl make g++ unzip
-wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-python-3.3.0.tar.gz
-tar -zxvf protobuf-python-3.3.0.tar.gz
-cd protobuf-3.3.0/
+wget https://github.com/google/protobuf/releases/download/v3.17.3/protobuf-python-3.17.3.tar.gz
+tar -zxvf protobuf-python-3.17.3.tar.gz
+cd protobuf-3.17.3/
 ./configure
 make
 sudo make install
