@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "status.proto";
+package adsmsg;
+
+
+// for oracle db 2.0
+message DocMatchRecord {
+	string source_bibcode = 1;
+	string matched_bibcode = 2;
+	double confidence = 3;
+}
+
+message DocMatchRecordList {
+	repeated DocMatchRecord docmatch_records = 1;
+	Status status = 2;
+}
