@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='docmatch.proto',
   package='adsmsg',
   syntax='proto3',
-  serialized_pb=_b('\n\x0e\x64ocmatch.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"U\n\x0e\x44ocMatchRecord\x12\x16\n\x0esource_bibcode\x18\x01 \x01(\t\x12\x17\n\x0fmatched_bibcode\x18\x02 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x01\"f\n\x12\x44ocMatchRecordList\x12\x30\n\x10\x64ocmatch_records\x18\x01 \x03(\x0b\x32\x16.adsmsg.DocMatchRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
+  serialized_pb=_b('\n\x0e\x64ocmatch.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"Q\n\x0e\x44ocMatchRecord\x12\x16\n\x0e\x65print_bibcode\x18\x01 \x01(\t\x12\x13\n\x0bpub_bibcode\x18\x02 \x01(\t\x12\x12\n\nconfidence\x18\x03 \x01(\x01\"f\n\x12\x44ocMatchRecordList\x12\x30\n\x10\x64ocmatch_records\x18\x01 \x03(\x0b\x32\x16.adsmsg.DocMatchRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3')
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
 
@@ -35,14 +35,14 @@ _DOCMATCHRECORD = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='source_bibcode', full_name='adsmsg.DocMatchRecord.source_bibcode', index=0,
+      name='eprint_bibcode', full_name='adsmsg.DocMatchRecord.eprint_bibcode', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='matched_bibcode', full_name='adsmsg.DocMatchRecord.matched_bibcode', index=1,
+      name='pub_bibcode', full_name='adsmsg.DocMatchRecord.pub_bibcode', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -68,7 +68,7 @@ _DOCMATCHRECORD = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=40,
-  serialized_end=125,
+  serialized_end=121,
 )
 
 
@@ -105,8 +105,8 @@ _DOCMATCHRECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=127,
-  serialized_end=229,
+  serialized_start=123,
+  serialized_end=225,
 )
 
 _DOCMATCHRECORDLIST.fields_by_name['docmatch_records'].message_type = _DOCMATCHRECORD

@@ -3,10 +3,10 @@ import "status.proto";
 package adsmsg;
 
 
-// for oracle db 2.0
+// for oracle db
 message DocMatchRecord {
-	string source_bibcode = 1;
-	string matched_bibcode = 2;
+	string eprint_bibcode = 1;
+	string pub_bibcode = 2;
 	double confidence = 3;
 }
 
