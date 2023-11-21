@@ -36,5 +36,11 @@ WORKDIR /app
 RUN pip install -r requirements.txt && \
     pip3 install -r requirements.txt
 
+# -Install a newer version of sed to fix issue with sed -i not handling permissions properly
+RUN wget https://ftp.gnu.org/gnu/sed/sed-4.9.tar.gz && \
+    tar -xzvf sed-4.9.tar.gz && \
+    cd sed-4.9/ && \
+    ./configure && make install
+
 CMD /bin/bash
 

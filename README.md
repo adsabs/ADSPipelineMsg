@@ -11,7 +11,7 @@ Message definitions based on [Google Protocol Buffers](https://developers.google
 
 ## Development
 
-To modify message definition, Protocol Buffers compiler should be installed:
+#### To modify message definition, Protocol Buffers compiler should be installed:
 
 ```
 sudo apt-get install autoconf automake libtool curl make g++ unzip
@@ -33,12 +33,16 @@ protoc --python_out=../adsmsg/protobuf filename.proto
 # 	https://github.com/protocolbuffers/protobuf/issues/1491#issuecomment-369324250
 sed -i 's/^import \([^ ]*\)_pb2 as \([^ ]*\)$/from . import \1_pb2 as \2/' ../adsmsg/protobuf/*_pb2.py
 ```
+MacOS users may find they need to replace the `sed` command with:
+```
+sed -i '' -e 's/^import \([^ ]*\)_pb2 as \([^ ]*\)$/from . import \1_pb2 as \2/' ../adsmsg/protobuf/*_pb2.py
+```
+due to differences in how the `BSD` version of `sed` operates compared to the `GNU` version bundled with most Linux distributions.
 
-Alternatively, a docker container can be built:
+ #### Alternatively, a docker container can be built:
 
 ```
-docker build -t adsmsg .
-docker run --rm -v `pwd`:/app --name adsmsg adsmsg make
+docker-compose up -d --force-recreate
 ```
 
 Or better, just run:
@@ -47,7 +51,19 @@ Or better, just run:
 ./rebuild.sh
 ```
 
-Every time the protocol buffers specifications are changed.
+`docker-compose` will automatically build the image if it does not already exist. If you wish to rebuild the image manually, simply
+
+```bash
+docker-compose build
+```
+or
+
+```bash
+docker-compose up --build
+```
+The `--no-cache` flag can be added to stop `docker` from using the cache for the build.
+
+Regardless of the chosen path, this must be run every time the protocol buffers specifications are changed.
 
 
 ### Testing
