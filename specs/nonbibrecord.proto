@@ -25,6 +25,7 @@ message NonBibRecord {
     repeated string bibgroup = 23;
     repeated string bibgroup_facet = 24;
     repeated string gpn = 26;
+    repeated string uat = 28;
 
 }    
 
