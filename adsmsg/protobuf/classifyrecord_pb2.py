@@ -11,7 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import status_pb2 as status__pb2
+from . import status_pb2 as status__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
