@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14\x63lassifyrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"i\n\x15\x43lassifyRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\r\n\x05title\x18\x03 \x01(\t\x12\x10\n\x08\x61\x62stract\x18\x04 \x01(\t\"u\n\x19\x43lassifyRequestRecordList\x12\x38\n\x11\x63lassify_requests\x18\x01 \x03(\x0b\x32\x1d.adsmsg.ClassifyRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"^\n\x16\x43lassifyResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x13\n\x0b\x63ollections\x18\x03 \x01(\t\"x\n\x1a\x43lassifyResponseRecordList\x12:\n\x12\x63lassify_responses\x18\x01 \x03(\x0b\x32\x1e.adsmsg.ClassifyResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3'
+  serialized_pb=b'\n\x14\x63lassifyrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"i\n\x15\x43lassifyRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\r\n\x05title\x18\x03 \x01(\t\x12\x10\n\x08\x61\x62stract\x18\x04 \x01(\t\"u\n\x19\x43lassifyRequestRecordList\x12\x38\n\x11\x63lassify_requests\x18\x01 \x03(\x0b\x32\x1d.adsmsg.ClassifyRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"^\n\x16\x43lassifyResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x13\n\x0b\x63ollections\x18\x03 \x03(\t\"x\n\x1a\x43lassifyResponseRecordList\x12:\n\x12\x63lassify_responses\x18\x01 \x03(\x0b\x32\x1e.adsmsg.ClassifyResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3'
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
 
@@ -143,8 +143,8 @@ _CLASSIFYRESPONSERECORD = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='collections', full_name='adsmsg.ClassifyResponseRecord.collections', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=3, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),

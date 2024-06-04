@@ -24,7 +24,7 @@ message ClassifyResponseRecord {
     Status status = 2;
     
     // calculated values for solr fields
-    string collections = 3;
+    repeated string collections = 3;
 }
 
 // also support lists of the above
