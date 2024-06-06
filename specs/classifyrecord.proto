@@ -1,0 +1,34 @@
+syntax = "proto3";
+import "status.proto";
+package adsmsg;
+
+// all fields required in the data frame that are sent to the classifier 
+// send this to classifier_pipeline to get the classification
+message ClassifyRequestRecord {
+    string bibcode = 1;
+    Status status = 2;
+    string title = 3;
+    string abstract = 4;
+}
+
+// also support lists of the above
+message ClassifyRequestRecordList {
+	repeated ClassifyRequestRecord classify_requests = 1;
+	Status status = 2;
+}
+
+// the classifier pipleine eventually sends this record to master
+message ClassifyResponseRecord {
+    // data sent for classification
+    string bibcode = 1;
+    Status status = 2;
+    
+    // calculated values for solr fields
+    repeated string collections = 3;
+}
+
+// also support lists of the above
+message ClassifyResponseRecordList {
+	repeated ClassifyResponseRecord classify_responses = 1;
+	Status status = 2;
+}
