@@ -2,6 +2,10 @@ from .augmentrecord import AugmentAffiliationRequestRecord, \
                            AugmentAffiliationRequestRecordList, \
                            AugmentAffiliationResponseRecord, \
                            AugmentAffiliationResponseRecordList
+from .classifyrecord import ClassifyRequestRecord, \
+                            ClassifyRequestRecordList, \
+                            ClassifyResponseRecord, \
+                            ClassifyResponseRecordList
 from .bibrecord import BibRecord
 from .denormalized_record import DenormalizedRecord
 from .fulltext_requests import FulltextRequests
