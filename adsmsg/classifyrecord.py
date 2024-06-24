@@ -4,7 +4,7 @@ from .protobuf import classifyrecord_pb2
 class ClassifyRequestRecord(Msg):
 
     def __init__(self, *args, **kwargs):
-        instance = classifyecord_pb2.ClassifyRequestRecord()
+        instance = classifyrecord_pb2.ClassifyRequestRecord()
         super(ClassifyRequestRecord, self).__init__(instance, args, kwargs)
 
 class ClassifyRequestRecordList(Msg):
