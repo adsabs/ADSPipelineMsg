@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14\x63lassifyrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"i\n\x15\x43lassifyRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\r\n\x05title\x18\x03 \x01(\t\x12\x10\n\x08\x61\x62stract\x18\x04 \x01(\t\"u\n\x19\x43lassifyRequestRecordList\x12\x38\n\x11\x63lassify_requests\x18\x01 \x03(\x0b\x32\x1d.adsmsg.ClassifyRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"^\n\x16\x43lassifyResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x13\n\x0b\x63ollections\x18\x03 \x03(\t\"x\n\x1a\x43lassifyResponseRecordList\x12:\n\x12\x63lassify_responses\x18\x01 \x03(\x0b\x32\x1e.adsmsg.ClassifyResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3'
+  serialized_pb=b'\n\x14\x63lassifyrecord.proto\x12\x06\x61\x64smsg\x1a\x0cstatus.proto\"\x89\x02\n\x15\x43lassifyRequestRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x0f\n\x07scix_id\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.adsmsg.Status\x12\r\n\x05title\x18\x04 \x01(\t\x12\x10\n\x08\x61\x62stract\x18\x05 \x01(\t\x12\x16\n\x0eoperation_step\x18\x06 \x01(\t\x12\x0e\n\x06run_id\x18\x07 \x01(\x04\x12\x10\n\x08override\x18\x08 \x03(\t\x12\x13\n\x0boutput_path\x18\t \x01(\t\x12\x0e\n\x06scores\x18\n \x03(\x01\x12\x13\n\x0b\x63ollections\x18\x0b \x03(\t\x12\x19\n\x11\x63ollection_scores\x18\x0c \x03(\x01\"u\n\x19\x43lassifyRequestRecordList\x12\x38\n\x11\x63lassify_requests\x18\x01 \x03(\x0b\x32\x1d.adsmsg.ClassifyRequestRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Status\"o\n\x16\x43lassifyResponseRecord\x12\x0f\n\x07\x62ibcode\x18\x01 \x01(\t\x12\x0f\n\x07scix_id\x18\x02 \x01(\t\x12\x1e\n\x06status\x18\x03 \x01(\x0e\x32\x0e.adsmsg.Status\x12\x13\n\x0b\x63ollections\x18\x04 \x03(\t\"x\n\x1a\x43lassifyResponseRecordList\x12:\n\x12\x63lassify_responses\x18\x01 \x03(\x0b\x32\x1e.adsmsg.ClassifyResponseRecord\x12\x1e\n\x06status\x18\x02 \x01(\x0e\x32\x0e.adsmsg.Statusb\x06proto3'
   ,
   dependencies=[status__pb2.DESCRIPTOR,])
 
@@ -43,23 +43,79 @@ _CLASSIFYREQUESTRECORD = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='adsmsg.ClassifyRequestRecord.status', index=1,
-      number=2, type=14, cpp_type=8, label=1,
+      name='scix_id', full_name='adsmsg.ClassifyRequestRecord.scix_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='adsmsg.ClassifyRequestRecord.status', index=2,
+      number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='title', full_name='adsmsg.ClassifyRequestRecord.title', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='title', full_name='adsmsg.ClassifyRequestRecord.title', index=3,
+      number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='abstract', full_name='adsmsg.ClassifyRequestRecord.abstract', index=3,
-      number=4, type=9, cpp_type=9, label=1,
+      name='abstract', full_name='adsmsg.ClassifyRequestRecord.abstract', index=4,
+      number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='operation_step', full_name='adsmsg.ClassifyRequestRecord.operation_step', index=5,
+      number=6, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='run_id', full_name='adsmsg.ClassifyRequestRecord.run_id', index=6,
+      number=7, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='override', full_name='adsmsg.ClassifyRequestRecord.override', index=7,
+      number=8, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_path', full_name='adsmsg.ClassifyRequestRecord.output_path', index=8,
+      number=9, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='scores', full_name='adsmsg.ClassifyRequestRecord.scores', index=9,
+      number=10, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='collections', full_name='adsmsg.ClassifyRequestRecord.collections', index=10,
+      number=11, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='collection_scores', full_name='adsmsg.ClassifyRequestRecord.collection_scores', index=11,
+      number=12, type=1, cpp_type=5, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -75,8 +131,8 @@ _CLASSIFYREQUESTRECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=46,
-  serialized_end=151,
+  serialized_start=47,
+  serialized_end=312,
 )
 
 
@@ -114,8 +170,8 @@ _CLASSIFYREQUESTRECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=153,
-  serialized_end=270,
+  serialized_start=314,
+  serialized_end=431,
 )
 
 
@@ -135,15 +191,22 @@ _CLASSIFYRESPONSERECORD = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='status', full_name='adsmsg.ClassifyResponseRecord.status', index=1,
-      number=2, type=14, cpp_type=8, label=1,
+      name='scix_id', full_name='adsmsg.ClassifyResponseRecord.scix_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='adsmsg.ClassifyResponseRecord.status', index=2,
+      number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='collections', full_name='adsmsg.ClassifyResponseRecord.collections', index=2,
-      number=3, type=9, cpp_type=9, label=3,
+      name='collections', full_name='adsmsg.ClassifyResponseRecord.collections', index=3,
+      number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -160,8 +223,8 @@ _CLASSIFYRESPONSERECORD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=272,
-  serialized_end=366,
+  serialized_start=433,
+  serialized_end=544,
 )
 
 
@@ -199,8 +262,8 @@ _CLASSIFYRESPONSERECORDLIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=368,
-  serialized_end=488,
+  serialized_start=546,
+  serialized_end=666,
 )
 
 _CLASSIFYREQUESTRECORD.fields_by_name['status'].enum_type = status__pb2._STATUS
