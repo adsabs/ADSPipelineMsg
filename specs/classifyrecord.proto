@@ -6,9 +6,17 @@ package adsmsg;
 // send this to classifier_pipeline to get the classification
 message ClassifyRequestRecord {
     string bibcode = 1;
-    Status status = 2;
-    string title = 3;
-    string abstract = 4;
+    string scix_id = 2;
+    Status status = 3;
+    string title = 4;
+    string abstract = 5;
+    string operation_step = 6;
+    uint64 run_id = 7;
+    repeated string override = 8;
+    string output_path = 9;
+    repeated double scores = 10; 
+    repeated string collections = 11;
+    repeated double collection_scores = 12; 
 }
 
 // also support lists of the above
@@ -21,10 +29,11 @@ message ClassifyRequestRecordList {
 message ClassifyResponseRecord {
     // data sent for classification
     string bibcode = 1;
-    Status status = 2;
+    string scix_id = 2;
+    Status status = 3;
     
     // calculated values for solr fields
-    repeated string collections = 3;
+    repeated string collections = 4;
 }
 
 // also support lists of the above
