@@ -27,10 +27,10 @@ message NonBibRecord {
     float citation_count_norm = 22;
     repeated string bibgroup = 23;
     repeated string bibgroup_facet = 24;
-    repeated string gpn = 26;
     repeated string uat = 28;
-    // Add the new identifier field
-    repeated string identifier = 29;
+    repeated string planetary_feature = 29;
+    repeated string identifier = 30;
+
 }    
 
 
