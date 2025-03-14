@@ -2,6 +2,8 @@ syntax = "proto3";
 import "status.proto";
 package adsmsg;
 
+import "master.proto";
+
 message NonBibRecord {
     string bibcode = 1;
     repeated string simbad_objects = 3;
@@ -18,7 +20,8 @@ message NonBibRecord {
     int32 total_link_counts = 15;
     repeated string esource = 17;
     repeated string property = 18;
-    repeated DataLinksRow data_links_rows = 19;
+    // Replace data_links_rows with the new links structure
+    LinkRecord links = 19;
     Status status = 20;
     int32 norm_cites = 21;
     float citation_count_norm = 22;
@@ -26,7 +29,8 @@ message NonBibRecord {
     repeated string bibgroup_facet = 24;
     repeated string gpn = 26;
     repeated string uat = 28;
-
+    // Add the new identifier field
+    repeated string identifier = 29;
 }    
 
 
