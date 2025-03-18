@@ -5,42 +5,42 @@ class NonBibRecord(Msg):
 
     def __init__(self, *args, **kwargs):
         instance = nonbibrecord_pb2.NonBibRecord()
-        data_links_rows = kwargs.pop('data_links_rows', None)  # remove for special handling
+        
+        # Handle links separately if provided
+        links = kwargs.pop('links', None)
+        
         super(NonBibRecord, self).__init__(instance, args, kwargs)
-        if data_links_rows:
-            # populate rows from database field
-            for current in data_links_rows:
-                row = instance.data_links_rows.add()
-                row.link_type = current['link_type']
-                row.link_sub_type = current['link_sub_type']
-                row.item_count = current['item_count']
-                row.url.extend(current['url'])
-                row.title.extend(current['title'])
-                
+        
+        # Handle only the links structure if provided
+        if links:
+            for key, value in links.items():
+                if key in ['ARXIV', 'DOI']:
+                    # Handle simple string arrays
+                    getattr(instance.links, key).extend(value)
+                elif key in ['DATA', 'ESOURCE']:
+                    # Handle map fields
+                    for subtype, link_data in value.items():
+                        link_type_record = getattr(instance.links, key)[subtype]
+                        if 'url' in link_data:
+                            link_type_record.url.extend(link_data['url'])
+                        if 'title' in link_data:
+                            link_type_record.title.extend(link_data['title'])
+                        if 'count' in link_data:
+                            link_type_record.count = link_data['count']
+                elif key in ['ASSOCIATED', 'INSPIRE', 'LIBRARYCATALOG', 'PRESENTATION']:
+                    # Handle LinkTypeRecord fields
+                    link_type_record = getattr(instance.links, key)
+                    if 'url' in value:
+                        link_type_record.url.extend(value['url'])
+                    if 'title' in value:
+                        link_type_record.title.extend(value['title'])
+                    if 'count' in value:
+                        link_type_record.count = value['count']
+                else:
+                    # Handle boolean fields
+                    setattr(instance.links, key, value)
 
 class NonBibRecordList(Msg):
 
     def __init__(self, *args, **kwargs):
         super(NonBibRecordList, self).__init__(nonbibrecord_pb2.NonBibRecordList(), args, kwargs)
-
-
-class DataLinksRecord(Msg):
-
-    def __init__(self, *args, **kwargs):
-        instance = nonbibrecord_pb2.DataLinksRecord()
-        data_links_rows = kwargs.pop('data_links_rows', None)  # remove for special handling
-        super(DataLinksRecord, self).__init__(instance, args, kwargs)
-        if data_links_rows:
-            # populate rows from database field
-            for current in data_links_rows:
-                row = instance.data_links_rows.add()
-                row.link_type = current['link_type']
-                row.link_sub_type = current['link_sub_type']
-                row.item_count = current['item_count']
-                row.url.extend(current['url'])
-                row.title.extend(current['title'])
-
-
-class DataLinksRecordList(Msg):
-    def __init__(self, *args, **kwargs):
-        super(DataLinksRecordList, self).__init__(nonbibrecord_pb2.DataLinksRecordList(), args, kwargs)
