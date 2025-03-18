@@ -19,7 +19,7 @@ message NonBibRecord {
     int32 total_link_counts = 15;
     repeated string esource = 17;
     repeated string property = 18;
-    DocumentRecord document = 19;
+    // repeated DataLinksRow data_links_rows = 19;  // replaced
     Status status = 20;
     int32 norm_cites = 21;
     float citation_count_norm = 22;
@@ -28,7 +28,8 @@ message NonBibRecord {
     repeated string gpn = 26;
     repeated string uat = 28;
     repeated string planetary_feature = 29;
-    
+    repeated string identifier = 30;  
+    LinkRecord links = 31;           
 }    
 
 message NonBibRecordList {
