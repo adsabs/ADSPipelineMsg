@@ -1,8 +1,7 @@
 syntax = "proto3";
 import "status.proto";
-package adsmsg;
-
 import "master.proto";
+package adsmsg;
 
 message NonBibRecord {
     string bibcode = 1;
@@ -20,41 +19,17 @@ message NonBibRecord {
     int32 total_link_counts = 15;
     repeated string esource = 17;
     repeated string property = 18;
-    // Replace data_links_rows with the new links structure
-    LinkRecord links = 19;
     Status status = 20;
     int32 norm_cites = 21;
     float citation_count_norm = 22;
     repeated string bibgroup = 23;
     repeated string bibgroup_facet = 24;
+    repeated string gpn = 26;
     repeated string uat = 28;
-    repeated string planetary_feature = 29;
-    repeated string identifier = 30;
-
+    DocumentRecord document = 19;
 }    
-
-
-// holds elements from a row in the nonbib DataLinksTable
-message DataLinksRow {
-	string link_type = 1;
-	string link_sub_type = 2;
-	repeated string url = 3;
-	repeated string title = 4;
-	int32 item_count = 5;
-}
 
 message NonBibRecordList {
 	repeated NonBibRecord nonbib_records = 1;
-	Status status = 2;
-}
-
-// holds elements from a bibcode in nonbib DataLinksTable
-message DataLinksRecord {
-    string bibcode = 1;
-    repeated DataLinksRow data_links_rows = 2;
-}
-
-message DataLinksRecordList {
-	repeated DataLinksRecord datalinks_records = 1;
 	Status status = 2;
 }
