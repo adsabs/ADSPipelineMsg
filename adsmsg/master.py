@@ -10,43 +10,32 @@ class DocumentRecord(Msg):
         super(DocumentRecord, self).__init__(instance, args, kwargs)
         if links:
             link_record = instance.links
-            for key in links.keys():
-                if isinstance(links[key], bool):
-                    setattr(link_record, key, links[key])
-                elif isinstance(links[key], list):
+            for key, value in links.items():
+                if isinstance(value, bool):
+                    setattr(link_record, key, value)
+                elif isinstance(value, list):
                     if key == 'ARXIV':
-                        instance.links.ARXIV.extend(links[key])
+                        link_record.ARXIV.extend(value)
                     elif key == 'DOI':
-                        instance.links.DOI.extend(links[key])
-                elif isinstance(links[key], dict):
+                        link_record.DOI.extend(value)
+                elif isinstance(value, dict):
                     if key == 'DATA':
-                        for sub_type_key in links[key].keys():
-                            link_type = instance.links.DATA[sub_type_key]
-                            link_type.url.extend(links[key][sub_type_key]['url'])
-                            link_type.title.extend(links[key][sub_type_key]['title'])
-                            link_type.count = links[key][sub_type_key]['count']
+                        for sub_type_key, sub_dict in value.items():
+                            link_type = link_record.DATA[sub_type_key]
+                            link_type.url.extend(sub_dict.get('url', []))
+                            link_type.title.extend(sub_dict.get('title', []))
+                            link_type.count = sub_dict.get('count', 0)
                     elif key == 'ESOURCE':
-                        for sub_type_key in links[key].keys():
-                            link_type = instance.links.ESOURCE[sub_type_key]
-                            link_type.url.extend(links[key][sub_type_key]['url'])
-                            link_type.title.extend(links[key][sub_type_key]['title'])
-                    elif key == 'ASSOCIATED':
-                        link_type = instance.links.ASSOCIATED
-                        link_type.url.extend(links[key]['url'])
-                        link_type.title.extend(links[key]['title'])
-                    elif key == 'TOC':
-                        link_type = instance.links.TOC
-                        link_type.url.extend(links[key]['url'])
-                    elif key == 'PRESENTATION':
-                        link_type = instance.links.PRESENTATION
-                        link_type.url.extend(links[key]['url'])
-                    elif key == 'LIBRARYCATALOG':
-                        link_type = instance.links.LIBRARYCATALOG
-                        link_type.url.extend(links[key]['url'])
-                    elif key == 'INSPIRE':
-                        link_type = instance.links.INSPIRE
-                        link_type.url.extend(links[key]['url'])
-
+                        for sub_type_key, sub_dict in value.items():
+                            link_type = link_record.ESOURCE[sub_type_key]
+                            link_type.url.extend(sub_dict.get('url', []))
+                            link_type.title.extend(sub_dict.get('title', []))
+                    elif key in ['ASSOCIATED', 'INSPIRE', 'LIBRARYCATALOG', 'PRESENTATION']:
+                        link_type = getattr(link_record, key)
+                        link_type.url.extend(value.get('url', []))
+                        link_type.title.extend(value.get('title', []))
+                        if 'count' in value:
+                            link_type.count = value['count']
 
 class DocumentRecords(Msg):
     def __init__(self, *args, **kwargs):
