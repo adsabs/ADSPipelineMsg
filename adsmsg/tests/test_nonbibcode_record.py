@@ -1,4 +1,3 @@
-
 import unittest
 
 from adsmsg.nonbibrecord import NonBibRecord, DataLinksRecord, DataLinksRecordList
@@ -66,6 +65,112 @@ class TestMsg(unittest.TestCase):
             self.assertEqual(m.data_links_rows[i].title, nonbib_data['data_links_rows'][i]['title'])
             self.assertEqual(m.data_links_rows[i].item_count, nonbib_data['data_links_rows'][i]['item_count'])
 
+    def test_nonbib_links_and_identifier(self):
+        """test creation of NonBibRecord with links and identifier parameters"""
+        nonbib_data = {
+            'bibcode': '2003ASPC..295..361M',
+            'links': {
+                # Boolean values
+                'TOC': True,
+                'ABSTRACT': False,
+                
+                # List values
+                'ARXIV': ['1234.5678', '8765.4321'],
+                'DOI': ['10.1234/5678', '10.8765/4321'],
+                
+                # Dict values - DATA
+                'DATA': {
+                    'CDS': {
+                        'url': ['http://cds.u-strasbg.fr/1', 'http://cds.u-strasbg.fr/2'],
+                        'title': ['CDS Link 1', 'CDS Link 2'],
+                        'count': 2
+                    },
+                    'NED': {
+                        'url': ['http://ned.ipac.caltech.edu/1'],
+                        'title': ['NED Object'],
+                        'count': 1
+                    }
+                },
+                
+                # Dict values - ESOURCE
+                'ESOURCE': {
+                    'PUB_HTML': {
+                        'url': ['http://example.com/pub/html'],
+                        'title': ['Publisher HTML']
+                    },
+                    'PUB_PDF': {
+                        'url': ['http://example.com/pub/pdf'],
+                        'title': ['Publisher PDF']
+                    }
+                },
+                
+                # Other link types
+                'ASSOCIATED': {
+                    'url': ['http://example.com/associated'],
+                    'title': ['Associated Articles'],
+                    'count': 5
+                },
+                'INSPIRE': {
+                    'url': ['http://inspirehep.net/record/12345'],
+                    'title': ['INSPIRE Record']
+                },
+                'LIBRARYCATALOG': {
+                    'url': ['http://library.example.com/catalog/123'],
+                    'title': ['Library Catalog']
+                },
+                'PRESENTATION': {
+                    'url': ['http://example.com/presentation'],
+                    'title': ['Presentation'],
+                    'count': 1
+                }
+            },
+            'identifier': ['arxiv:1234.5678', 'doi:10.1234/5678']
+        }
+        
+        m = NonBibRecord(**nonbib_data)
+        
+        # Check basic fields
+        self.assertEqual(m.bibcode, nonbib_data['bibcode'])
+        
+        # Check boolean link values
+        self.assertTrue(m.links.TOC)
+        self.assertFalse(m.links.ABSTRACT)
+        
+        # Check list link values
+        self.assertEqual(m.links.ARXIV, nonbib_data['links']['ARXIV'])
+        self.assertEqual(m.links.DOI, nonbib_data['links']['DOI'])
+        
+        # Check DATA values
+        for subtype in nonbib_data['links']['DATA']:
+            self.assertEqual(m.links.DATA[subtype].url, nonbib_data['links']['DATA'][subtype]['url'])
+            self.assertEqual(m.links.DATA[subtype].title, nonbib_data['links']['DATA'][subtype]['title'])
+            self.assertEqual(m.links.DATA[subtype].count, nonbib_data['links']['DATA'][subtype]['count'])
+        
+        # Check ESOURCE values
+        for subtype in nonbib_data['links']['ESOURCE']:
+            self.assertEqual(m.links.ESOURCE[subtype].url, nonbib_data['links']['ESOURCE'][subtype]['url'])
+            self.assertEqual(m.links.ESOURCE[subtype].title, nonbib_data['links']['ESOURCE'][subtype]['title'])
+        
+        # Check ASSOCIATED
+        self.assertEqual(m.links.ASSOCIATED.url, nonbib_data['links']['ASSOCIATED']['url'])
+        self.assertEqual(m.links.ASSOCIATED.title, nonbib_data['links']['ASSOCIATED']['title'])
+        self.assertEqual(m.links.ASSOCIATED.count, nonbib_data['links']['ASSOCIATED']['count'])
+        
+        # Check INSPIRE
+        self.assertEqual(m.links.INSPIRE.url, nonbib_data['links']['INSPIRE']['url'])
+        self.assertEqual(m.links.INSPIRE.title, nonbib_data['links']['INSPIRE']['title'])
+        
+        # Check LIBRARYCATALOG
+        self.assertEqual(m.links.LIBRARYCATALOG.url, nonbib_data['links']['LIBRARYCATALOG']['url'])
+        self.assertEqual(m.links.LIBRARYCATALOG.title, nonbib_data['links']['LIBRARYCATALOG']['title'])
+        
+        # Check PRESENTATION
+        self.assertEqual(m.links.PRESENTATION.url, nonbib_data['links']['PRESENTATION']['url'])
+        self.assertEqual(m.links.PRESENTATION.title, nonbib_data['links']['PRESENTATION']['title'])
+        self.assertEqual(m.links.PRESENTATION.count, nonbib_data['links']['PRESENTATION']['count'])
+        
+        # Check identifier
+        self.assertEqual(m.identifier, nonbib_data['identifier'])
 
     def test_datalinks(self):
         """test creation of protobuf

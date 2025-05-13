@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "status.proto";
+import "master.proto";
 package adsmsg;
 
 message NonBibRecord {
@@ -26,7 +27,10 @@ message NonBibRecord {
     repeated string bibgroup_facet = 24;
     repeated string uat = 28;
     repeated string planetary_feature = 29;
-}    
+    
+    LinkRecord links = 30;
+    repeated string identifier = 31;
+}   
 
 
 // holds elements from a row in the nonbib DataLinksTable
