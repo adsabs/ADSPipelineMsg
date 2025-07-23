@@ -30,6 +30,11 @@ message NonBibRecord {
     
     LinkRecord links = 30;
     repeated string identifier = 31;
+    int32 reference_count = 32;
+    int32 mention_count = 33;
+    int32 credit_count = 34;
+    repeated string mention = 35;
+    repeated string credit = 36;
 }   
 
 
