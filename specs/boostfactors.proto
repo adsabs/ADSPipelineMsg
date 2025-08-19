@@ -1,0 +1,58 @@
+syntax = "proto3";
+import "status.proto";
+package adsmsg;
+
+// Request record for boost factor computation
+message BoostRequestRecord {
+    string bibcode = 1;
+    string scix_id = 2;
+    Status status = 3;
+    
+    // Fields for boost factor computation
+    bytes bib_data = 4;  // JSON bytes for complex nested data
+    bytes metrics = 5;    // JSON bytes for complex nested data
+    repeated string classifications = 6; // String list
+    repeated string collections = 7;  // Always multi-valued from RecordsDB
+    
+    // Optional fields for additional processing
+    uint64 run_id = 8;
+    string output_path = 9;
+}
+
+// List of boost factor request records
+message BoostRequestRecordList {
+    repeated BoostRequestRecord boost_requests = 1;
+    Status status = 2;
+}
+
+// Response record for boost factor computation
+message BoostResponseRecord {
+    // Original record identifiers
+    string bibcode = 1;
+    string scix_id = 2;
+    Status status = 3;
+    
+    // Basic boost factors
+    double doctype_boost = 4;
+    double refereed_boost = 5;
+    double recency_boost = 6;
+    double boost_factor = 7;
+    
+    // Final boosts by discipline
+    double astronomy_final_boost = 8;
+    double physics_final_boost = 9;
+    double earth_science_final_boost = 10;
+    double planetary_science_final_boost = 11;
+    double heliophysics_final_boost = 12;
+    double general_final_boost = 13;
+    
+    // Timestamps
+    string created = 14;
+    string modified = 15;
+}
+
+// List of boost factor response records
+message BoostResponseRecordList {
+    repeated BoostResponseRecord boost_responses = 1;
+    Status status = 2;
+}
