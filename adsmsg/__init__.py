@@ -24,6 +24,8 @@ from .citation_changes import CitationChanges, CitationChange
 from .citation_changes_content_type import CitationChangeContentType
 from .docmatch import DocMatchRecord, \
     DocMatchRecordList
+from .boostfactors import BoostRequestRecord, BoostRequestRecordList, \
+    BoostResponseRecord, BoostResponseRecordList
 
 
 
