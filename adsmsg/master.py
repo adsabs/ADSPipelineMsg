@@ -30,6 +30,7 @@ class DocumentRecord(Msg):
                             link_type = link_record.ESOURCE[sub_type_key]
                             link_type.url.extend(sub_dict.get('url', []))
                             link_type.title.extend(sub_dict.get('title', []))
+                            link_type.count = sub_dict.get('count', 0)
                     elif key in ['ASSOCIATED', 'INSPIRE', 'LIBRARYCATALOG', 'PRESENTATION']:
                         link_type = getattr(link_record, key)
                         link_type.url.extend(value.get('url', []))
