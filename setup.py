@@ -30,7 +30,7 @@ def get_git_version(default="v1.3.18"):
 
 setup(
     name='adsmsg',
-    version=get_git_version(default="v0.0.1"),
+    version=get_git_version(default="v1.3.18"),
     url='http://github.com/adsabs/flask-discoverer/',
     license='MIT',
     author='NASA/SAO ADS',
