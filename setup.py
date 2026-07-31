@@ -31,7 +31,7 @@ def get_git_version(default="v1.3.18"):
 setup(
     name='adsmsg',
     version=get_git_version(default="v1.3.18"),
-    url='http://github.com/adsabs/flask-discoverer/',
+    url='http://github.com/adsabs/ADSPipelineMsg/',
     license='MIT',
     author='NASA/SAO ADS',
     description='Interpipeline communication messages',
